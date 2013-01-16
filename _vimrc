@@ -220,9 +220,9 @@ set laststatus=2            " Always show statusline, even if only 1 window.
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 " displays tabs with :set list & displays when a line runs off-screen
-"set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
+set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 set listchars=trail:-,precedes:<,extends:>
-set list
+"set list
 
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
