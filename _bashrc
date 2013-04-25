@@ -101,6 +101,7 @@ if $TERM_IS_COLOR && ( dircolors --help && ls --color ) &> /dev/null; then
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
+  alias phpunit='phpunit --colors --verbose'
 else
   # No color, so put a slash at the end of directory names, etc. to differentiate.
   alias ls="ls -F"
@@ -172,3 +173,6 @@ export GIT_EDITOR="$vim"
 
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
+
+#Colors for phpunit
+alias phpunit='phpunit --colors --verbose'
