@@ -102,6 +102,7 @@ if $TERM_IS_COLOR && ( dircolors --help && ls --color ) &> /dev/null; then
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
   alias phpunit='phpunit --colors --verbose'
+  alias template_cp='for f in *.template ; do cp $f ${f%.template} ; done'
 else
   # No color, so put a slash at the end of directory names, etc. to differentiate.
   alias ls="ls -F"
