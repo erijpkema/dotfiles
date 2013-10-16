@@ -1,2 +1,2 @@
 alias random='tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1'
-
+alias o='xdg-open'
