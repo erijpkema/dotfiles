@@ -153,6 +153,8 @@ if [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     PATH=/Applications/MacVim.app/Contents/MacOS/:$PATH
 fi
 
+PATH=$PATH:~/projects/it-tools/bin/:/home/egon/env/it-tools/bin/
+
 PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
 
