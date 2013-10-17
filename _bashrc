@@ -153,7 +153,13 @@ if [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     PATH=/Applications/MacVim.app/Contents/MacOS/:$PATH
 fi
 
-PATH=$PATH:~/projects/it-tools/bin/:/home/egon/env/it-tools/bin/
+#pl It tools
+if [ -d $HOME/projects/it-tools ]; then
+    # Add the Paylogic IT tools to the $PATH.
+    export PATH="$PATH:$HOME/projects/it-tools/bin"
+    # Enable completion for the Paylogic IT tools.
+    source "$HOME/projects/it-tools/completion.sh"
+fi
 
 PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
@@ -162,9 +168,17 @@ parse_git_branch ()
 {
   git branch 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#(git::\1)#'
 }
-parse_svn_branch() {
+
+parse_hg_branch()
+{
+ hg branch 2> /dev/null | sed 's#\(^.*\)#(hg::\1)#' 
+}
+
+parse_svn_branch() 
+{
   parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk -F / '{print "(svn::"$1 "/" $2 ")"}'
 }
+
 parse_svn_url() {
   svn info 2>/dev/null | sed -ne 's#^URL: ##p'
 }
@@ -176,7 +190,7 @@ export EDITOR="$vim"
 export GIT_EDITOR="$vim"
 
 # Add git and svn branch names
-export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
+export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch) "
 
 #Colors for phpunit
 alias phpunit='phpunit --colors --verbose'
