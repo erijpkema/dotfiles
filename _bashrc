@@ -161,6 +161,12 @@ if [ -d $HOME/projects/it-tools ]; then
     source "$HOME/projects/it-tools/completion.sh"
 fi
 
+#pl It tools
+if [ -d $HOME/env/it-tools ]; then
+    # Add the Paylogic IT tools to the $PATH.
+    export PATH="$PATH:$HOME/env/it-tools/bin"
+fi
+
 PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
 

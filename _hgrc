@@ -1,2 +1,9 @@
-[ui]
-username = sontek <sontek@gmail.com>
+[extensions]
+color=
+pager=
+bookmarks=
+progress=
+patchbomb=
+graphlog=
+purge=
+schemes=
