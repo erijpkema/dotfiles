@@ -157,7 +157,8 @@ set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
 set grepprg=ack         " replace the default grep program with ack
-
+"colors
+set t_CO=256
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
