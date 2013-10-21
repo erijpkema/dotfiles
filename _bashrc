@@ -115,6 +115,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Alias definitions.
+if [ -f ~/.bash_paylogic ]; then
+    . ~/.bash_paylogic
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -153,19 +158,6 @@ if [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     PATH=/Applications/MacVim.app/Contents/MacOS/:$PATH
 fi
 
-#pl It tools
-if [ -d $HOME/projects/it-tools ]; then
-    # Add the Paylogic IT tools to the $PATH.
-    export PATH="$PATH:$HOME/projects/it-tools/bin"
-    # Enable completion for the Paylogic IT tools.
-    source "$HOME/projects/it-tools/completion.sh"
-fi
-
-#pl It tools
-if [ -d $HOME/env/it-tools ]; then
-    # Add the Paylogic IT tools to the $PATH.
-    export PATH="$PATH:$HOME/env/it-tools/bin"
-fi
 
 PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
