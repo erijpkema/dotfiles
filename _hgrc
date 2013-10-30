@@ -1,3 +1,6 @@
+[ui]
+username = Egon Rijpkema <egon.rijpkema@paylogic.eu>
+
 [extensions]
 color=
 pager=
@@ -7,3 +10,8 @@ patchbomb=
 graphlog=
 purge=
 schemes=
+
+[pager]
+pager = LESS='FRQX' less
+attend = annotate, diff, glog, incoming, log, outgoing, qdiff, tip, p, sglog, slog, cat, ., /
+

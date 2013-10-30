@@ -141,6 +141,11 @@ fi
   }
 } >/dev/null 2>/dev/null
 
+#history completion with same command
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+
 venwrap=`type -P virtualenvwrapper.sh`
 if [ "$venwrap" != "" ]; then
     source $venwrap
@@ -186,7 +191,7 @@ parse_svn_repository_root() {
 set -o emacs
 export EDITOR="$vim"
 export GIT_EDITOR="$vim"
-export WORKON_HOME=$HOME/envs
+export WORKON_HOME=$HOME/env
 
 
 # Add git and svn branch names
