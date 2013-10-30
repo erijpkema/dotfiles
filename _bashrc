@@ -141,10 +141,6 @@ fi
   }
 } >/dev/null 2>/dev/null
 
-#history completion with same command
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-
 
 venwrap=`type -P virtualenvwrapper.sh`
 if [ "$venwrap" != "" ]; then
@@ -199,3 +195,4 @@ export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch) "
 
 #Colors for phpunit
 alias phpunit='phpunit --colors --verbose'
+

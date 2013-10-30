@@ -32,6 +32,11 @@ $if mode=vi
     "\C-a":yank-last-arg
 $endif
 
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+
 # IPython needs this to appear at the bottom of the
 # file for clear-screen to work
 set keymap vi
