@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/opt/web-data/VDO-X/vdo-x_master/management'
-let g:netrw_dirhist_2='/home/egon/dotfiles/_vim/snippets'
-let g:netrw_dirhist_3='/opt/web-data/VDO-X/master/translations'
-let g:netrw_dirhist_4='/opt/web-data/VDO-X/master/management'
-let g:netrw_dirhist_5='/opt/web-data/VDO-X/master/libraries'
-let g:netrw_dirhist_6='/opt/web-data/VDO-X/master/translations/en_GB'
-let g:netrw_dirhist_7='/opt/web-data/VDO-X/master/unittests/integration'
-let g:netrw_dirhist_8='/opt/web-data/streamstat/debian/afterburner-daemon-py26'
-let g:netrw_dirhist_9='/home/egon/projects/deb-repo/packages/pl-sync-shared-files-monitor-target'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/egon/dotfiles'

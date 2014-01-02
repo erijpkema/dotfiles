@@ -1,5 +1,6 @@
 [ui]
 username = Egon Rijpkema <egon.rijpkema@paylogic.eu>
+ssh = ssh -o ControlMaster=no -o ControlPersist=no "$@"
 
 [extensions]
 color=

@@ -244,3 +244,6 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
 endif
 
 "set colorcolumn=79
+"
+"Don't copy line numbers
+set mouse=a
