@@ -247,3 +247,6 @@ endif
 "
 "Don't copy line numbers
 set mouse=a
+
+"insert date with f5
+nnoremap <F5> "=strftime("%c")<CR>P
