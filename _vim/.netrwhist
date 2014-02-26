@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/egon/dotfiles'
+let g:netrw_dirhist_2='/home/egon/projects'
+let g:netrw_dirhist_3='/etc/cron.d'
+let g:netrw_dirhist_4='/home/egon/projects/deb-repo/packages/pl-ipmi-monitor'
+let g:netrw_dirhist_5='/home/egon/projects/deb-repo/packages/pl-update-checker/DEBIAN'
