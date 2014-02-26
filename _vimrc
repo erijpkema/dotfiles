@@ -317,3 +317,16 @@ set mouse=a
 
 "insert date with f5
 nnoremap <F5> "=strftime("%c")<CR>P
+"insert pdb with F6
+" Function to insert a debug trace for python and javascript and map to Ctrl-i
+nnoremap <F6> :call InsertDebugTrace()<CR>
+function! InsertDebugTrace()
+    if (&ft == 'python')
+        normal! Oimport ipdb; ipdb.set_trace()
+    elseif (&ft == 'javascript')
+        normal! Odebugger;
+    endif
+    :w
+endfunction
+
+
