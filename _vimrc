@@ -322,7 +322,7 @@ nnoremap <F5> "=strftime("%c")<CR>P
 nnoremap <F6> :call InsertDebugTrace()<CR>
 function! InsertDebugTrace()
     if (&ft == 'python')
-        normal! Oimport ipdb; ipdb.set_trace()
+        normal! Oimport pdb; pdb.set_trace()
     elseif (&ft == 'javascript')
         normal! Odebugger;
     endif
