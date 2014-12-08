@@ -2,7 +2,7 @@
 set editing-mode vi
 
 # Adds punctuation as word delimiters
-set bind-tty-special-chars off
+#set bind-tty-special-chars off
 
 # Completion Options
 set page-completions on
@@ -13,10 +13,10 @@ set show-all-if-unmodified on
 set visible-stats on
 
 # Useful stuff for UTF-8
-set meta-flag on
-set input-meta on
-set output-meta on
-set convert-meta off
+#set meta-flag on
+#set input-meta on
+#set output-meta on
+#set convert-meta off
 
 $if mode=vi
     set keymap vi-command
@@ -44,7 +44,9 @@ $endif
 "\e[5C": forward-word
 "\e[5D": backward-word
 "\e\e[C": forward-word
+"\e\e[OC": forward-word
 "\e\e[D": backward-word
+"\e\e[OD": backward-word
 
 # IPython needs this to appear at the bottom of the
 # file for clear-screen to work
