@@ -116,8 +116,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Alias definitions.
-if [ -f ~/.bash_paylogic ]; then
-    . ~/.bash_paylogic
+if [ -f ~/.bash_voipgrid ]; then
+    . ~/.bash_voipgrid
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -189,6 +189,8 @@ export EDITOR="$vim"
 export GIT_EDITOR="$vim"
 export WORKON_HOME=$HOME/env
 
+# make virsh commands work as debian user
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch) "
