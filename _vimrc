@@ -131,8 +131,8 @@ map <leader>r :RopeRename<CR>
 " ==========================================================
 " Load pathogen with docs for all plugins
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 " ==========================================================
 " Basic Settings
