@@ -1,0 +1,906 @@
+Klad
+
+To get started enter a title for your note above. When you’re ready to save
+your note just use Vim’s :write or :update commands, a filename will be picked
+automatically based on the title.
+
+                                    * * *
+
+The notes plug-in comes with self hosting documentation. To jump to these notes
+position your cursor on the highlighted name and press ‘gf’ in normal mode:
+
+ • Note taking syntax
+ • Note taking commands
+
+
+
+
+Wed 05 Nov 2014 02:43:20 PM CET
+
+Trying to build asterisk 11 (cowbuilder --build)
+
+
+lder-satisfydepends-dummy : Depends: libpjproject-dev which is a virtual package.
+                                 Depends: libncurses-dev which is a virtual package.
+                                 Depends: libneon27-gnutls-dev but it is not going to be installed. or
+                                          libneon27-dev but it is not going to be installed.
+                                 Depends: libical-dev but it is not going to be installed.
+                                 Depends: libsrtp0-dev but it is not going to be installed.
+                                 Depends: libedit-dev but it is not going to be installed.
+                                 Depends: binutils-dev but it is not going to be installed.
+
+-- Added the backports mirror to pbuilderrc to mitigate these issues
+egon@buildserver-wheezy:~$ cat /etc/pbuilderrc
+# this is your configuration file for pbuilder.
+# the file in /usr/share/pbuilder/pbuilderrc is the default template.
+# /etc/pbuilderrc is the one meant for overwriting defaults in
+# the default template
+#
+# read pbuilderrc.5 document for notes on specific options.
+MIRRORSITE=http://ftp.nl.debian.org/debian/
+#OTHERMIRROR="deb http://www.backports.org/debian/ $DIST-backports main"
+OTHERMIRROR="deb http://http.debian.net/debian wheezy-backports main"
+egon@buildserver-wheezy:~$
+
+-- Things that bother me still:
+
+make[2]: Entering directory '/tmp/buildd/asterisk-11.11.0'
+****
+**** The configure script must be executed before running '/usr/bin/make'.
+****               Please run "./configure".
+****
+
+Thu 06 Nov 2014 08:56:41 AM CET
+
+Will now compile with the voipgrid repo added to othermirror
+    https://debian.voipgrid.nl/debian wheezy main
+
+root@voipgrid-puppet:0:/home/egon# cat /root/README.buildrules
+# Build debian packages (within a chroot)
+
+# The source directory to build from is:
+# /usr/src/debian-pkg/asterisk/asterisk-10.12.1 (this will stay this way until
+# the upstream version changes (10.12.1)).
+
+# Step 1: Remove all currently applied patches by debian
+cd /usr/src/debian-pkg/asterisk/asterisk-10.12.1
+quilt pop -fa
+git checkout .
+git clean -f
+
+# Step 2: Fetch and apply the updates from the git repo
+git pull --rebase
+
+# Step 3: Regenerate the orig.tar.gz from the git repository (important step
+# otherwise errors will happen). We should absolutely not make use of the
+# command: dpkg-source --commit. If this happens, check which files are changed.
+# The orig.tar.gz should be in the form off: <pkgname>_<pkgversion>.orig.tar.gz
+# For example: asterisk_10.12.1.orig.tar.gz
+# One note: the orig.tar.gz should not contain a .git directory.
+cd /usr/src/debian-pkg/asterisk
+mv asterisk_10.12.1.orig.tar.gz asterisk_10.12.1.orig.1.tar.gz
+tar czf asterisk_10.12.1.orig.tar.gz asterisk-10.12.1/ \
+        --exclude=asterisk-10.12.1/.git \
+        --exclude=asterisk-10.12.1/.pc \
+        --exclude=asterisk-10.12.1/debian
+cd asterisk-10.12.1/
+dch -i
+cd ..
+
+# Step 4: Create the dsc and corresponding files:
+# dpkg-source -b <sourcedir>-<version>
+dpkg-source -b asterisk-10.12.1
+
+# Step 5: Build the packages (there is no need to chroot, cowbuilder will setup
+# the chroot itself)
+# cowbuilder --build <filename>.dsc
+cowbuilder --build `ls asterisk*.dsc -t | head -n1`
+
+# Step 6: Wait until process is done
+
+# Step 7: Resulting debian packages are in:
+# /var/cache/pbuilder/result
+
+
+Na het volgende commando "doet ie het" ook op de buildserver.
+    DIST=wheezy ARCH=amd64 cowbuilder --update --override-config
+
+
+Packages worden geinstalleerd op ua0.test2.voipgrid.nl
+on# dpkg -i asterisk-config_11.11.0-voipgrid1.1_all.deb asterisk-modules_11.11.0-voipgrid1.1_amd64.deb asterisk-mp3_11.11.0-voipgrid1.1_amd64.deb asterisk-ooh323_11.11.0-voipgrid1.1_amd64.deb asterisk-config_11.11.0-voipgrid1.1_all.deb .11.0-voipgrid1.1_aroot@vgdev-ua0:/home/egon# dpkg -i asterisk-config_11.11.0-voipgrid1.1_all.deb
+
+
+dependency problems:
+
+dpkg: dependency problems prevent configuration of asterisk-modules:
+ asterisk-modules depends on libc6 (>= 2.14); however:
+  Version of libc6:amd64 on system is 2.13-38+deb7u4.
+ asterisk-modules depends on libcfg4 (>= 1.4.6); however:
+  Package libcfg4 is not installed.
+ asterisk-modules depends on libcpg4 (>= 1.4.6); however:
+  Package libcpg4 is not installed.
+ asterisk-modules depends on libcurl3 (>= 7.16.2); however:
+  Package libcurl3 is not installed.
+ asterisk-modules depends on libfreeradius-client2; however:
+  Package libfreeradius-client2 is not installed.
+ asterisk-modules depends on libical1 (>= 1.0); however:
+  Package libical1 is not installed.
+ asterisk-modules depends on libodbc1 (>= 2.3.1); however:
+  Version of libodbc1:amd64 on system is 2.2.14p2-5.
+ asterisk-modules depends on libpci3 (>= 1:3.2.1-1); however:
+  Version of libpci3:amd64 on system is 1:3.1.9-6.
+ asterisk-modules depends on libpj2 (>= 2.1.0~ast20130801); however:
+  Package libpj2 is not installed.
+ asterisk-modules depends on lib
+dpkg: error processing asterisk-modules (--install):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of asterisk-mp3:
+ asterisk-mp3 depends on asterisk (= 1:11.11.0-voipgrid1.1); however:
+  Version of asterisk on system is 1:10.12.1-1voipgrid12.2.
+ asterisk-mp3 depends on libc6 (>= 2.14); however:
+  Version of libc6:amd64 on system is 2.13-38+deb7u4.
+
+dpkg: error processing asterisk-mp3 (--install):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of asterisk-ooh323:
+ asterisk-ooh323 depends on asterisk (= 1:11.11.0-voipgrid1.1); however:
+  Version of asterisk on system is 1:10.12.1-1voipgrid12.2.
+ asterisk-ooh323 depends on libc6 (>= 2.14); however:
+  Version of libc6:amd64 on system is 2.13-38+deb7u4.
+
+
+## When installing home built official packages
+
+
+dpkg: dependency problems prevent configuration of asterisk-modules:
+ asterisk-modules depends on libcfg4 (>= 1.4.6); however:
+  Version of libcfg4 on system is 1.4.2-3.
+ asterisk-modules depends on libcpg4 (>= 1.4.6); however:
+  Version of libcpg4 on system is 1.4.2-3.
+ asterisk-modules depends on libical1 (>= 1.0); however:
+  Package libical1 is not installed.
+ asterisk-modules depends on libodbc1 (>= 2.3.1); however:
+  Version of libodbc1:amd64 on system is 2.2.14p2-5.
+ asterisk-modules depends on libpci3 (>= 1:3.2.1-1); however:
+  Version of libpci3:amd64 on system is 1:3.1.9-6.
+ asterisk-modules depends on libsnmp30 (>= 5.7.2.1~dfsg); however:
+  Package libsnmp30 is not installed.
+ asterisk-modules depends on libtiff5 (>= 4.0.3); however:
+  Package libtiff5 is not installed.
+
+
+
+Mon 10 Nov 2014 04:16:39 PM CET
+
+
+patches die nog in package moeten:
+
+~/projects/voipgrid/docs/asterisk-patch
+egon@egon-laptop$ (git::master) ls other*-10.7.0.patch
+alles in deze dir zit erin...
+
+Tue 11 Nov 2014 09:19:10 AM CET
+Ik pakte in eerste instantie de bestaande asterisk 11 directory op de puppet server: /usr/src/debian-pkg/asterisk/asterisk-11.11.0 .
+En deed daarna 
+    $ git init.
+Maar in 2e instantie (nog geen patches doorgevoerd) leek het me toch beter het debian git repo te gebruiken:
+    git://anonscm.debian.org/pkg-voip/asterisk.git
+    and the branch wheezy-backports
+
+    $ git checkout -b voipgrid
+
+
+    egon@egon-laptop$ (git::voipgrid) for patch in $(ls ~/projects/voipgrid/docs/asterisk-patch/other*-10.7.0.patch) ; do git apply --check $patch ; done
+    error: patch failed: channels/chan_sip.c:28993
+    error: channels/chan_sip.c: patch does not apply
+    error: patch failed: main/pbx.c:5384
+    error: main/pbx.c: patch does not apply
+    error: patch failed: cdr/cdr_odbc.c:130
+    error: cdr/cdr_odbc.c: patch does not apply
+    error: patch failed: channels/chan_sip.c:9179
+    error: channels/chan_sip.c: patch does not apply
+    error: patch failed: res/res_config_odbc.c:69
+    error: res/res_config_odbc.c: patch does not apply
+    error: patch failed: channels/chan_sip.c:10744
+    error: channels/chan_sip.c: patch does not apply
+    error: patch failed: channels/chan_sip.c:16917
+    error: channels/chan_sip.c: patch does not apply
+    error: res_musiconhold.c: No such file or directory
+    error: patch failed: main/channel.c:1342
+    error: main/channel.c: patch does not apply
+    error: patch failed: apps/app_dial.c:858
+    error: apps/app_dial.c: patch does not apply
+
+
+Manually applying the patches:
+
+egon@egon-laptop$ (git::voipgrid) ls ~/projects/voipgrid/docs/asterisk-patch/other*-10.7.0.patch
+* /home/egon/projects/voipgrid/docs/asterisk-patch/other10_global_onhangup_handler-10.7.0.patch
+    Heb de onhangup handler er in gehacked en de nieuwe geretained. (hopenlijk, moet het even laten reviewen ;-) )
+         Thu 13 Nov 2014 10:51:30 AM CET
+            Krijg teveel compile errors heb de patch er eerst weer uit gesloopt
+            De compile errors:
+                 in file included from /tmp/buildd/asterisk-11.12.0~voipgrid~r1/include/asterisk/utils.h:764:0,
+                 from /tmp/buildd/asterisk-11.12.0~voipgrid~r1/include/asterisk/config.h:30,
+                 from /tmp/buildd/asterisk-11.12.0~voipgrid~r1/include/asterisk/channel.h:143,
+                 from /tmp/buildd/asterisk-11.12.0~voipgrid~r1/include/asterisk/pbx.h:26,
+                 from pbx.c:48:/home/egon/projects/voipgrid/docs/asterisk-patch/other11_less_error_logs-ar375137-10.7.0
+    main/pbx.c +6550 functie die gepatched wordt is flink gewijzigd.dd
+dit met de hand gedaan:
+    }
+    14 @@ -130,7 +130,7 @@ static SQLHSTMT execute_cb(struct odbc_obj *obj, void *data)
+    15  ^IODBC_res = SQLExecDirect(stmt, (unsigned char *)sqlcmd, SQL_NTS);
+    16 -
+    17  ^Iif ((ODBC_res != SQL_SUCCESS) && (ODBC_res != SQL_SUCCESS_WITH_INFO)) {
+    18 -^I^Iast_verb(11, "cdr_odbc: Error in ExecDirect: %d (query was %s)\n", ODBC_res, sqlcmd); /* XXX-WJD trying to d>
+    19 +^I^Iast_log(LOG_WARNING, "cdr_odbc: Error in ExecDirect: %d, query is: %s\n", ODBC_res, sqlcmd);
+    20  ^I^ISQLFreeHandle(SQL_HANDLE_STMT, stmt);
+    21  ^I^Ireturn NULL;
+    22  ^I}
+    /chan_sip.c
+    17 +++ b/channels/chan_sip.c
+    18 @@ -9179,7 +9179,7 @@ static int process_sdp(struct sip_pvt *p, struct sip_request *req, int t38action
+    19  ^I^I^Iif ((sscanf(m, "audio %30u/%30u RTP/%4s %n", &x, &numberofports, protocol, &len) == 3 && len > 0) ||
+    20  ^I^I^I    (sscanf(m, "audio %30u RTP/%4s %n", &x, protocol, &len) == 2 && len > 0)) {
+    21  ^I^I^I^Iif (x == 0) {
+    22 -^I^I^I^I^Iast_log(LOG_WARNING, "Ignoring audio media offer because port number is zero\n");
+    23 +^I^I^I^I^Iast_debug(1, "Ignoring audio media offer because port number is zero\n");
+    24  ^I^I^I^I^Icontinue;
+    25  ^I^I^I^I}
+    ast_debug(1, "Ignoring video stream offer because port number is zero\n"); geintroduceerd
+
+
+    Niet geapplied omdat de nieuwe logmessage ook op LOG_WARNING nivo is
+    diff --git a/cdr/cdr_odbc.c b/cdr/cdr_odbc.c
+    2 index 12945ff..8b01b6c 100644
+    3 --- a/cdr/cdr_odbc.c
+    4 +++ b/cdr/cdr_odbc.c
+    5 @@ -85,7 +85,7 @@ static SQLHSTMT execute_cb(struct odbc_obj *obj, void *data)
+    6  ^IODBC_res = SQLAllocHandle(SQL_HANDLE_STMT, obj->con, &stmt);
+    7 -
+    8  ^Iif ((ODBC_res != SQL_SUCCESS) && (ODBC_res != SQL_SUCCESS_WITH_INFO)) {
+    9 -^I^Iast_verb(11, "cdr_odbc: Failure in AllocStatement %d\n", ODBC_res);
+    10 +^I^Iast_log(LOG_WARNING, "cdr_odbc: Failure in AllocStatement %d\n", ODBC_res);
+    11  ^I^ISQLFreeHandle(SQL_HANDLE_STMT, stmt);
+    12  ^I^Ireturn NULL;
+    13  ^I}
+
+
+/home/egon/projects/voipgrid/docs/asterisk-patch/other12_show_which_query_failed-10.7.0.patch
+    veel met de hand gedaan maar was duidelijk
+/home/egon/projects/voipgrid/docs/asterisk-patch/other13_remove_needless_warnings-10.7.0.patch
+    All done manually
+/home/egon/projects/voipgrid/docs/asterisk-patch/other14_remove_via_errors-10.7.0.patch
+    laatste diff manually
+/home/egon/projects/voipgrid/docs/asterisk-patch/other15_mjordan_forgot_mohfix_in_r374178-10.7.0.patch
+    was al applied
+/home/egon/projects/voipgrid/docs/asterisk-patch/other16_always_enable_faxdebug-10.7.0.patch
+    applied without a problem
+/home/egon/projects/voipgrid/docs/asterisk-patch/other17_shitty_deadlock_avoidance-10.7.0.patch
+    Does not apply anymore as the function that is being patched has been eliminated
+    main/channel.c
+        1606 /* Legacy function, not currently used for lookups, but we need a cmp_fn */
+        1607 static int ast_channel_cmp_cb(void *obj, void *arg, int flags)
+        1608 {
+        1609     ast_log(LOG_ERROR, "BUG! Should never be called!\n");
+        1610     return CMP_STOP;
+        1611 }
+/home/egon/projects/voipgrid/docs/asterisk-patch/other18_unoptimized_localchan_for_loops-10.7.0.patch
+~/projects/asterisk
+
+
+Mon 17 Nov 2014 09:13:49 AM CET
+Commented the codec out as it was compiled for previous version
+;load => codec_g729a.so
+got the new one from:
+    http://asterisk.hosting.lv/
+Aantekeningen mbt debuggen asterisk:
+    core files staan in /var/spool/asterisk
+  gdb `which asterisk` core.vgua0-sig-2015-02-03T14\:12\:22+0100 -batch -ex 'thread apply all bt'
+  804  vi /etc/asterisk/modules.conf
+
+
+
+Tue 18 Nov 2014 01:52:01 PM CET
+Afgesproken dat ik ga werken aan het unittesten van dialplans. In eerste instantie zaak om de scripts in docs/sipp in Walter zn fix/cli-no-double-rpid-and-more-fixes branch van het voipgrid repo aan de praat te krijgen.
+Wed 19 Nov 2014 10:33:49 AM CET
+    De github versie van sipp is hiervoor nodig:
+
+Fri 21 Nov 2014 11:10:15 AM CET
+    Richt de ua0.test2 server in als asterisk 11 testserver. In puppet staat geen asterisk config.
+
+-- installatie van sipp
+git clone git@github.com:SIPp/sipp.git
+    # sudo apt-get install ncurses-base ncurses-bin libncurses-dev g++
+    # sh build.sh
+    # sudo make install
+Mon 24 Nov 2014 10:51:34 AM CET
+2 dinken die ik ga doen
+    - Toch de hangup handler patch integreren
+    - Walter zn testsuite integereren in de bestaande django testsuite
+
+Krijg compile error bij incorpereren van hangup handler. Heb iemand nodig met c ervaring ;-) :
+    pbx.c:6752:44: error: dereferencing pointer to incomplete type
+    pbx.c:6755:21: error: dereferencing pointer to incomplete type
+    pbx.c:6755:21: error: dereferencing pointer to incomplete type
+    pbx.c:6755:21: error: dereferencing pointer to incomplete type
+    pbx.c:6755:21: warning: passing argument 1 of 'ast_strlen_zero' makes pointer from integer without a cast [enabled by default]
+    In file included from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/utils.h:764:0,
+                    from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/config.h:30,
+                    from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/channel.h:143,
+                    from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/pbx.h:26,
+                    from pbx.c:48:
+    /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/strings.h:63:40: note: expected 'const char *' but argument is of type 'int'
+    pbx.c:6758:38: error: dereferencing pointer to incomplete type
+    pbx.c:6758:75: error: dereferencing pointer to incomplete type
+    pbx.c:6759:42: error: dereferencing pointer to incomplete type
+    pbx.c:6759:75: error: dereferencing pointer to incomplete type
+    pbx.c:6760:26: error: dereferencing pointer to incomplete type
+    pbx.c:6762:40: error: dereferencing pointer to incomplete type
+    pbx.c:6763:38: error: dereferencing pointer to incomplete type
+    pbx.c:6767:59: error: dereferencing pointer to incomplete type
+    pbx.c:6767:71: error: dereferencing pointer to incomplete type
+    pbx.c:6767:81: error: dereferencing pointer to incomplete type
+    pbx.c:6768:25: error: dereferencing pointer to incomplete type
+    pbx.c:6768:25: error: dereferencing pointer to incomplete type
+    pbx.c:6768:25: error: dereferencing pointer to incomplete type
+    pbx.c:6768:25: warning: passing argument 1 of 'ast_strlen_zero' makes pointer from integer without a cast [enabled by default]
+    In file included from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/utils.h:764:0,
+                    from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/config.h:30,
+                    from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/channel.h:143,
+                    from /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/pbx.h:26,
+                    from pbx.c:48:
+    /tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/include/asterisk/strings.h:63:40: note: expected 'const char *' but argument is of type 'int'
+    pbx.c:6770:26: error: dereferencing pointer to incomplete type
+    pbx.c:6774:25: error: dereferencing pointer to incomplete type
+    pbx.c:6774:25: error: dereferencing pointer to incomplete type
+    pbx.c:6774:25: error: dereferencing pointer to incomplete type
+    pbx.c:6774:25: error: dereferencing pointer to incomplete type
+    pbx.c:6775:25: error: dereferencing pointer to incomplete type
+    pbx.c:6775:25: error: dereferencing pointer to incomplete type
+    pbx.c:6775:25: error: dereferencing pointer to incomplete type
+    pbx.c:6775:25: error: dereferencing pointer to incomplete type
+    make[3]: *** [pbx.o] Error 1
+    make[3]: Leaving directory `/tmp/buildd/asterisk-11.12.0~voipgrid~r1.1/main'
+    make[2]: *** [main] Error 2
+    make[2]: Leaving directory `/tmp/buildd/asterisk-11.12.0~voipgrid~r1.1'
+    dh_auto_build: make -j1 NOISY_BUILD=yes ASTDATADIR=/usr/share/asterisk ASTVARRUNDIR=/var/run/asterisk returned exit code 2
+    make[1]: *** [override_dh_auto_build] Error 2
+    make[1]: Leaving directory `/tmp/buildd/asterisk-11.12.0~voipgrid~r1.1'
+    make: *** [build] Error 2
+    dpkg-buildpackage: error: debian/rules build gave error exit status 2
+    E: Failed autobuilding of package
+    I: unmounting dev/pts filesystem
+    I: unmounting proc filesystem
+    -> Cleaning COW directory
+    forking: rm -rf /var/cache/pbuilder/build//cow.14253
+
+Fri 28 Nov 2014 04:55:56 PM CET
+in call logs spitten op de ams proxy
+    ssh proxy0.ams
+    cd /srv/
+    ls -rtlha
+    sipcaparseye.py siproute.pcap.62 -m623809220
+    sipcaparseye.py siproute.pcap.62 -m623809220 --contents
+
+    indien nodig kun je ip de gecontacteerde ua zoeken  SIP/227050001-00043b9f 
+
+
+Alternatief: kijk op de webserver:
+    select * from call_participant where linkedid = 'vgua1-tc2-1427882466.3341461';
+    dat vgua1-tc2-1427882466.3341461 staat in de gesprekslijst.
+
+    vervolgens verder uitspitten in de cell logs op de UA:
+    sudo grep -e vgua1-tc2-1427882519.3341826 -e vgua1-tc2-1427882466.3341461 /var/log/asterisk/cel-custom/full.csv.1
+
+Mon 01 Dec 2014 10:57:15 AM CET
+Vergelijk mysql configs op db0.ams db0.sig en 0qrq 1 grq
+    db0 vergelijk: geen opmerkingen
+
+    db0 grq vs db1 grq
+      innodb  thread concurrency 24 vs 8
+      `
+      `1
+
+todo:
+    pl-remote-diff jatten
+
+Tue 02 Dec 2014 01:53:13 PM CET
+    Vanavond gaan we asterisk 10 upgraden op ua2.tc2
+
+
+Thu 04 Dec 2014 07:04:15 PM CET
+    Plan voor Vanavond
+db0.sig Verkeer naar mysql doppen behalve voor db0.ams
+
+/sbin/iptables -I INPUT -p tcp --dport 3306 -s ! 195.35.114.110 -j DROP
+/sbin/iptables -I OUTPUT -p tcp --dport 3306 -d ! 195.35.114.110 -j DROP
+
+Wanneer slaving up to date is "slave stop;" op db0.ams, db0.sig en db0.grq
+change master op db0.ams
+
+CHANGE MASTER TO MASTER_HOST='195.35.115.110',MASTER_USER='repl',RELAY_LOG_FILE='myhost-bin.~',RELAY_LOG_POS=~;
+
+"slave start;" op db0.ams, db0.sig en db0.grq
+
+host file wijzigen op sipproxy's en ua's (in pupppet in /etc/puppet/manifests/classes/useragent.pp en /etc/puppet/manifests/classes/sipproxy.pp) let op!!! sipproxy.sig moet nog handmatig
+mysql-proxy herstarten op. siproute.sig, proxy0.ams, ua0.sig, ua1.sig, ua2.sig, ua0.tc2, ua1.tc2 en ua2.tc2
+
+"/etc/init.d/mysql-proxy restart"
+
+Alles dubbelchecken op functionaliteit
+de sms disabled zabbix check
+
+UserParameter=sms.disabled, mysql --user=zabbix --password=pass --batch --skip-column-names --execute="select status from zabbix.media_type where mediatypeid = 3"
+
+
+Wed 10 Dec 2014 02:39:08 PM CET
+de flapping for web test
+({TRIGGER.VALUE}=0 & {zabbix.voipgrid.nl:web.test.fail[voipgrid.nl].max(6m)}#0) | ({TRIGGER.VALUE}=1 & {zabbix.voipgrid.nl:web.test.fail[voipgrid.nl].min(6m)}#0)
+
+zabbix de response time van een web scenario
+{zabbix.voipgrid.nl:web.test.time[voipgrid.nl,go to website,resp].avg(#5)}>10
+
+Fri 12 Dec 2014 05:15:54 PM CET
+cat test_environment_locked.conf
+UserParameter=test_environment_lock,cat /tmp/test_environment_lock 2> /dev/null || echo "not locked"
+
+Mon 15 Dec 2014 01:27:58 PM CET
+    gebeld met oxilion: (hoster voipgrid)
+
+Thu 18 Dec 2014 05:23:27 PM CET
+ asterisk met libcurl4-openssl-dev gaat live op ua2.tc2
+
+
+Fri 02 Jan 2015 11:45:25 AM CET
+
+  File "/home/egon/env/voipgrid/bin/django-admin.py", line 5, in <module>
+    management.execute_from_command_line()
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 443, in execute_from_command_line
+    utility.execute()
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 382, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/base.py", line 196, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/base.py", line 232, in execute
+    output = self.handle(*args, **options)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/base.py", line 371, in handle
+    return self.handle_noargs(**options)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/south/management/commands/syncdb.py", line 92, in handle_noargs
+    syncdb.Command().execute(**options)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/base.py", line 232, in execute
+    output = self.handle(*args, **options)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/base.py", line 371, in handle
+    return self.handle_noargs(**options)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/commands/syncdb.py", line 110, in handle_noargs
+    emit_post_sync_signal(created_models, verbosity, interactive, db)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/core/management/sql.py", line 189, in emit_post_sync_signal
+    interactive=interactive, db=db)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/dispatch/dispatcher.py", line 172, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/db/transaction.py", line 224, in inner
+    return func(*args, **kwargs)
+  File "/home/egon/projects/voipgrid/voipgrid/base/backend/asterisk/models/__init__.py", line 317, in _execute_additional_sql
+    ''')
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/db/backends/util.py", line 40, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 114, in execute
+    return self.cursor.execute(query, args)
+  File "/home/egon/env/voipgrid/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 187, in execute
+    query = query % tuple([db.literal(item) for item in args])
+TypeError: not enough arguments for format string
+
+
+
+Tue 13 Jan 2015 09:44:54 AM CET
+    Nog bezig met vergelijken GRID-648/voip2voip2voip/run en mijn ding
+    walter:
+09:44:05: Testing GRID-648/voip2voip2voip: sippfg20 -s 126680003 -ap QSznaSnH47LY8k9 -sf ../XML/req-reg-200.xml  -i 192.168.23.126 -p 5071 -m 1 195.35.115.244
+
+sippbg20 -s 126680003 -ap QSznaSnH47LY8k9 -sf ../XML/resp-inv-486.xml -i 192.168.23.126 -p 5071 -m 1
+sippfg20 -s 126680004 -ap LGLLvRWLMSFaGSM -sf ../XML/req-reg-200.xml  -i 192.168.23.126 -p 5072 -m 1 195.35.115.244
+sippbg20 -s 126680004 -ap LGLLvRWLMSFaGSM -sf ../XML/resp-inv-302.xml -i 192.168.23.126 -p 5072 -m 1 -key contact sip:203@195.35.115.244
+sippbg20 -s 126680002 -ap nRcN7kyrpK5yg3h -sf ../XML/req-inv-486.xml -i 192.168.23.126 -p 5073 -m 1 195.35.115.244 -key tel 204
+
+   ik:
+
+sipp -sf ../XML/req-reg-200.xml -i 192.168.23.126 -p 5071 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 126680003 -ap QSznaSnH47LY8k9 195.35.115.244
+sipp -sf ../XML/resp-inv-486.xml -i 192.168.23.126 -p 5071 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 126680003 -ap QSznaSnH47LY8k9 195.35.115.244
+sipp -sf ../XML/req-reg-200.xml -i 192.168.23.126 -p 5072 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 126680004 -ap LGLLvRWLMSFaGSM 195.35.115.244
+sipp -sf ../XML/resp-inv-302.xml -i 192.168.23.126 -p 5071 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 126680004 -ap LGLLvRWLMSFaGSM 195.35.115.244
+sipp -sf ../XML/req-inv-486.xml -i 192.168.23.126 -p 5073 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 126680002 -ap nRcN7kyrpK5yg3h -key tel 204 195.35.115.244
+
+
+
+
+Tue 13 Jan 2015 03:15:49 PM CET
+    om wiki voor klant aan te maken
+    https://dapro01.oxilion.nl:2222/CMD_DOMAIN_POINTER?sort1=1&DOMAIN=wiki.voipgrid.nl&page=2
+
+
+Wed 14 Jan 2015 02:37:05 PM CET
+    git pull --rebase
+    Kan altijd veilig en voorkomt alleen ongewilde merges
+
+Fri 16 Jan 2015 03:38:48 PM CET
+    Only pattern matching in grep
+    grep -Po "(?<=rtt=)([0-9]+\.[0-9]+)"
+
+
+Wed 21 Jan 2015 01:47:12 PM CET
+    move old wavs to old recordings subdir.
+    find . -maxdepth 1 -name "*.wav"  -not -newermt '2015-01-01' -exec mv -t very_old_recordings {} +
+    use my script:
+
+
+Wed 21 Jan 2015 08:44:51 PM CET
+    Upgrade zometeen van de ua's
+    Heen:
+        apt-get update
+        apt-get install asterisk
+        in de asterisk terminal Tegelijk:
+        core abort shutdown
+        core restart when convenient
+    Terug (rollback)
+        apt-get install /home/egon/rollback/*
+
+
+    Servers te doen
+
+ua0.sig                 ua1.sig                ua2.sig
+ua0.tc2                 ua1.tc2
+
+
+    Dit zat er trouwens in
+    confbridge: CVE-2014-8414
+    Gebouwd tegen libcurl4-openssl-dev
+
+
+Wed 28 Jan 2015 04:24:48 PM CET
+sip commando's gedaan door mijn testclass
+
+sipp -sf /srv/django-projects/voipgrid/voipgrid/base/call_testing/XML/req-reg-200.xml -i 195.35.115.241 -p 5071 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 127950003 -ap GKTaFxJpPddWc5P 195.35.115.244
+sipp -sf /srv/django-projects/voipgrid/voipgrid/base/call_testing/XML/resp-inv-486.xml -i 195.35.115.241 -p 5071 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 127950003 -ap GKTaFxJpPddWc5P 195.35.115.244
+sipp -sf /srv/django-projects/voipgrid/voipgrid/base/call_testing/XML/req-reg-200.xml -i 195.35.115.241 -p 5071 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 127950002 -ap Fs9hWjahNkGz2aT 195.35.115.244
+sipp -sf /srv/django-projects/voipgrid/voipgrid/base/call_testing/XML/resp-inv-302.xml -i 195.35.115.241 -p 5071 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 127950002 -ap Fs9hWjahNkGz2aT 195.35.115.244
+sipp -sf /srv/django-projects/voipgrid/voipgrid/base/call_testing/XML/req-reg-200.xml -i 195.35.115.241 -p 5072 -m 1 -timeout 20 -nd -trace_msg -trace_err -s 127950001 -ap Y4hChVSjbM3k3AH 195.35.115.244
+
+
+Wed 28 Jan 2015 11:25:06 PM CET
+    Duidelijker in de infra asterisk artikel
+:locatie van production.py
+vi voipgrid/settings/production.py
+    Namen van processen in crontabs
+ik kijk even of er faxen klaar staan
+als alle faxen op dit moment done zijn durf ik de herstarts aan
+dat doe ik in vgstaff overigens
+just so you know
+11:26 onder outbound fax statuss 
+
+Handig:
+wcheckrestart
+
+
+
+db0.ams
+Processing triggers for install-info ...
+Setting up libapt-inst1.5:amd64 (0.9.7.9+deb7u7) ...
+Setting up libssl1.0.0:amd64 (1.0.1e-2+deb7u14) ...
+ create mode 120000 ssl/certs/3c9a4d3b.0
+ create mode 120000 ssl/certs/3efd4dc0.0
+ create mode 120000 ssl/certs/ACCVRAIZ1.pem
+ create mode 120000 ssl/certs/Swisscom_Root_EV_CA_2.pem
+ create mode 120000 ssl/certs/b0ed035a.0
+ create mode 120000 ssl/certs/b872f2b4.0
+ create mode 120000 ssl/certs/c28a8a30.0
+ create mode 120000 ssl/certs/c5d3212a.0
+ create mode 120000 ssl/certs/cb156124.0
+ delete mode 120000 ssl/certs/ce026bf8.0
+ create mode 120000 ssl/certs/d06393bb.0
+ create mode 120000 ssl/certs/d4dae3dd.0
+ create mode 120000 ssl/certs/d66b55d9.0
+ create mode 120000 ssl/certs/d7746a63.0
+ create mode 120000 ssl/certs/e36a6752.0
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+
+ip van banana eindigd op 109
+
+
+
+Fri 20 Mar 2015 11:04:39 AM CET
+Uitzoeken of onderstaanden ook later kunnen/moeten
+# ./manage migrate billing 0006  # kan 40 min duren (op web_db, niet de lege master)
+# ./manage migrate billing 0007  # kan 40 min duren (op web_db, niet de lege master)
+
+
+Docker
+    docker-compose run web ./manage flushall :
+        django.db.utils.DatabaseError: (145, "Table './mysql/proc' is marked as crashed and should be repaired")
+
+    oplossing:
+        docker exec -it voipgrid_db_1 sudo mysqlcheck --repair --use-frm --all-databases
+
+Mon 23 Mar 2015 07:03:59 PM CET
+deploy
+*************************** 2. row ***************************
+     Id: 260679
+   User: system user
+   Host: 
+     db: voipgrid_live_db
+Command: Connect
+   Time: 3533
+  State: Repair by sorting
+   Info: CREATE INDEX `billing_billingitem_partner_id_6a99657a6ee632b9` ON `billing_billingitem` (`partner_id
+*************************** 3. row ***************************
+
+{HOSTNAME}: TEST Puppet has not run in 60m
+{Template App Puppet Agent:puppet[time_last_run].now(0)} - {Template App Puppet Agent:puppet[time_last_run].last(0)} < 3600
+{Template App Puppet Agent:puppet.run.nodata(24h)}=1
+
+
+VOIPGRID_TESTDATA=../voipgrid-testdata/factorydata-test.py ./manage flushall
+
+
+
+Wed 15 Apr 2015 04:40:36 PM CEST
+Dispatcher aanpassen:
+    cd /etc/ser/db/
+    vim dispatcher-bg.txt
+
+    zie ook
+    http://42.wearespindle.com/Infra:Asterisk
+
+ua's staan op web in:
+voipgrid/base/backend/asterisk/conf/sip.conf-vgdev
+na aanpassen:
+ ./manage flushext
+op proxy's :
+ service opensips-bg restart
+ service opensips-fg restart
+
+
+mail aankopen moet naar administratie@wearespindle.com
+
+Devhouse Spindle
+Helperpark 286a
+9723 ZA Groningen
++31508009000
+
+
+Thu 23 Apr 2015 01:58:30 PM CEST
+Zonderramdrive:
+ran 149 tests in 52.940s
+OK (SKIP=11)
+
+Zonder:
+
+
+Tue 28 Apr 2015 04:11:19 PM CEST
+Vanavond asterisk restart geven.
+alel ua's :
+    cssh ua0.sig ua0.tc2 ua1.sig ua1.tc2 ua2.sig ua2.tc2
+
+    Moeten updaten:
+        ua0.tc2 ua1.tc2 ua0.sig
+
+proxy0.ams siproute.sig
+
+de func_obdc enzo staan in de database in 
+ql> select * from asterisk_staticconf where filename = 'voicemail.conf' and var_name='sendvoicemail' \G
+
+aan de asterisk kant is dit geregeld in extconfig_conf
+
+Mon 11 May 2015 11:56:18 AM CEST
+
+Alle 06 nummers Omzetten naar speakup doe ik door:
+op de siprouters:
+ 1991  cd /etc/ser/
+ 1992  vim ser-bg.m4
+bij:
+ # These numbers are unreachable over BT
+ "|| $rU =~ "^\+316" toevoegen
+ 1993  make check
+ 1994  /etc/init.d/opensips-bg restart (niet 10 seconden voor en na de hele minuut)
+"
+
+Wed 27 May 2015 11:28:59 AM CEST
+Wat rene doet is eerst kijken naar de telefoonnummers op proxy.ams om te kijken of we pakketjes uitsturen (naar BT, BITCO, etc) om te zien waar het gesprek wel of niet wordt opgezet. 
+
+
+
+Wed 03 Jun 2015 03:12:07 PM CEST
+tmux join-pane:
+   :join-pane -s :<nr>
+
+
+
+Thu 18 Jun 2015 08:55:29 AM CEST
+I build the asterisk 11 packages like this:
+cd /usr/src/debian-pkg/asterisk/asterdebvg
+git pull --rebase
+
+cd /usr/src/debian-pkg/asterisk/asterisk-11.16.0
+mount -o bind ../asterdebvg/debian/ debian/
+quilt pop -fa
+git checkout .
+git clean -f #Ignoring notifications
+#als je een patch wilt applyen kan dat met:
+quilt import /tmp/the-patch -P better patch name
+
+cd ..
+tar czf asterisk_11.16.0-11vg1.debian.tar.gz asterisk-11.16.0 \
+        --exclude=asterisk-11.16.0/.git \
+        --exclude=asterisk-11.16.0/.pc \
+        --exclude=asterisk-11.16.0/debian
+
+cd asterisk-11.16.0
+dch -i
+
+
+#the version in the brackets must match the tar file
+cd ..
+dpkg-source -b asterisk-11.16.0
+cowbuilder --build asterisk_11.16.0-11vg1.1.dsc
+
+#you can find your freshly built packages in this directory:
+/var/cache/pbuilder/result
+
+
+Bij dpkg install volgende probleem:
+
+Configuration file `/etc/default/asterisk' => verouderd`
+
+
+Mon 22 Jun 2015 02:48:32 PM CEST
+#De deb repo staat op zabbix
+#add packages:
+su debian-pkg
+reprepro -b /home/debian-pkg/repos/apt/debian includedeb wheezy /home/egon/asterisk_1*
+#Pass staat in mitro
+
+
+# Dit moet voorkomen dat er een reboot komt prerm
+dh_installinit -a -R -n -- defaults 21
+
+Wed 01 Jul 2015 03:37:37 PM CEST
+#Grid 2522
+
+apt-get install curl zip
+curl -L https://github.com/docker/compose/releases/download/1.3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+cd /srv
+git clone https://gitlab.peperzaken.nl/spindle/IncomingCallNotifier.git
+
+unzip deploy.zip (ww Gai3thohch8alait0pha9ohlouPeer4w)
+
+
+
+
+Wed 01 Jul 2015 05:28:01 PM CEST
+alle ua's
+cssh ua0.sig.voipgrid.nl ua0.tc2.voipgrid.nl ua1.sig.voipgrid.nl ua1.tc2.voipgrid.nl ua2.sig.voipgrid.nl ua2.tc2.voipgrid.nl ua3.ams.voipgrid.nl ua3.grq.voipgrid.nl
+
+
+#!/bin/bash
+# Delete all containers
+docker rm $(docker ps -a -q)
+# Delete all images
+docker rmi $(docker images -q)
+docker rm $(docker ps -a -q) && docker rmi $(docker images -q)
+
+
+Wed 15 Jul 2015 02:28:21 PM CEST
+callrecording debuggen.
+ua en tijdstip staat in gesprekkenlijst.
+kijk /var/log/asterisk/debug.log (roteert)
+handig: gespreks ID (C-0003a6c2)
+recordings komen terecht in /srv/data/callrecordings/cel
+
+
+Wed 15 Jul 2015 05:24:33 PM CEST
+Op proxy (let op kan beiden zijn)
+
+                   Registration IP
+sipzamine -p 'host 92.67.93.60' -m 618983193 sipproxy.pcap.9[234]* --contents | less
+
+
+
+Tue 11 Aug 2015 01:57:20 PM CEST
+Count the number of releases per major version.
+cat tags | grep -P "^(v|V)" | awk -F "." '{ print $1 "." $2 "." }' | sort --unique
+for release in `cat releases`;do echo ${release:1}","`grep -c $release tags`; done > hotfixes.csv
+Mon 17 Aug 2015 10:01:12 AM CEST
+
+root@voipgrid-web2k13:/srv/django-projects/voipgrid# for table in $(./contrib/slave-master-diff.sh | grep "slave only" | sed 's/(slave only)//'); do sudo mysql --defaults-file=/etc/mysql/debian.cnf voipgrid_live_db -s -N  -e "select \"$table\", count(*) from $table;" ; done
+
+voipgrid_live_db.billing_billingitem    164504693
+voipgrid_live_db.callrecording_callrecording    468251
+voipgrid_live_db.callrecording_recording        98280
+voipgrid_live_db.cdr_chargegroupspecial 4
+voipgrid_live_db.cdr_chargespecial      4182359
+voipgrid_live_db.cdr_operator   95
+voipgrid_live_db.cdr_record     61400756
+voipgrid_live_db.cdr_status     1
+voipgrid_live_db.cdr_unbilledrecord     1817257
+voipgrid_live_db.cel_callbillingitem    38151941
+voipgrid_live_db.frauddetection_clienttraffic   232625
+voipgrid_live_db.record_recordbillingitem       123787790
+voipgrid_live_db.stats_duration 87476332
+voipgrid_live_db.stats_durationrange    2
+voipgrid_live_db.stats_period   49529
+voipgrid_live_db.stats_periodrange      4
+voipgrid_live_db.stats_stats    43738168
+voipgrid_live_db.subscription_subscriptionbillingitem   4775
+
+Ook handig:
+contrib/which-models-use-web-only.sh
+./manage tablespace list
+
+http://dev.mysql.com/doc/refman/5.0/en/replication-options-slave.html#option_mysqld_replicate-do-table
+
+Wat ik zou willen voorstellen:
+    Tabel voor tabel.
+    Neerzetten op een van de main databases uit nachtelijke backup.
+    Repliceren tot aan live.
+    Als hij bij is: Write lock op tabel op web. (na kantoor uren)
+    Web software updaten om andere database te querien.
+
+Tijdens besoreking op 24 Aug werd dit te ingewikkeld bevonden. We zouden ook kunnen kijken hoe lang het duurt om deze tabellen te dumpen.
+Als dat niet te lang is, gewoon na kantoortijd onder een global write lock een tabel dumpen en restoren op het DB paar. Dit herhalen voor alle tabellen.
+
+Extra database load zou je kunnen verminderen door:
+1 Load baalncing (ha proxy) voor je database.
+2 In de queries in django voor een bepaalde tabel spreiden over backends.
+3 (mijn voorkeur) Een 2e webserver met elke webserver een eigen backend en dan loadbalancen over de webservers.
+Tijdens Backend overleg werden alle oplossingen waarbij de load van de webapplicatie over meerdere databases word gespreid als zeer riskant ervaren. Zeker met schrijfacties is dit natuurlijk ook niet zonder gevaren en dit zou naar een ander project kunnen.
+Dit betekent wel dat je accepteerd dat webservers last blijven houden van zware queries. Je kunt deze last natuurlijk tijdelijk verminderen door de harware van de actieve master te upgraden en slecht geschreven queries aan te pakken.
+Billing zou misschien ook vanaf de unreal machine kunnen worden gedaan die dan daarovoor een ro slave quiried.
+
+Ik wil graag nog altijd innodb. De waarschuwing dat count queries trager zijn in innodb is maar ten dele waar: Dit geldt alleen als er geen where clause is:
+https://www.percona.com/blog/2006/12/01/count-for-innodb-tables/
+Het is mogelijk dit te doen bij de migratie van de tabellen. Replicatie van MyISAM naar innoDB is ook mogelijk.
+
+
+
+Testen hoe lang maken dump en inladen.
+
+cdr_unbilled_record kan weg
+
+asterisken naar andere db dan web laten kijken.
+
+innoDB Rene is bang voor foreign constrains. Daarom appart ticket.
+Bij testen liep hij er tegenaan dat deze blijkbaar gezet werden en dingen stuk maakten.
+
+Backups op web staan in:
+/var/backups/mysql
+
+
+Mon 24 Aug 2015 01:29:31 PM CEST
+
+Mass kill all selects
+#!/bin/bash
+mysql --defaults-file=/etc/mysql/debian.cnf voipgrid_live_db --execute "select concat('KILL ',id,';') from information_schema.processlist where Info like 'SELECT%' into outfile '/tmp/a.txt';"
+mysql --defaults-file=/etc/mysql/debian.cnf voipgrid_live_db --execute "source /tmp/a.txt;"
+rm /tmp/a.txt
+
+
+Mon 31 Aug 2015 06:08:01 PM CEST
+Deploy errors bij
+# ./manage collectstatic --noinput
+# ./manage less
+
+>>> Generate branding for Marble Systems
+>>>> Writing to file /srv/data/media/brand/brand-129793.less
+>>>>> undefined_methodError: error evaluating function `mix`: Object #<Object> has no method 'toHSL' in /srv/data/media/brand/brand-129793.less:15:36
+15 @btnPrimaryTextHover:               mix(white,@btnPrimaryText, 50%);    /* btn-primary text color hover */
+16 
+>>>>> blessc: ENOENT, no such file or directory '/srv/data/static/brand/css/brand-129793.css'
+>>>> Writing to file /srv/data/media/brand/brand-anonymous-129793.less
+>>>>> undefined_methodError: error evaluating function `mix`: Object #<Object> has no method 'toHSL' in /srv/data/media/brand/brand-anonymous-129793.less:15:36
+14 @btnPrimaryBackgroundHighlight:     @spotcolor; /* btn-primary background color hover */
+15 @btnPrimaryTextHover:               mix(white,@btnPrimaryText, 50%);    /* btn-primary text color hover */
+16 
+>>>>> blessc: ENOENT, no such file or directory '/srv/data/static/brand/css/brand-anonymous-129793.css'
+

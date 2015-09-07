@@ -331,4 +331,5 @@ function! InsertDebugTrace()
     :w
 endfunction
 
-
+"Vimnotes
+let g:notes_directories = ['~/Dropbox/Documents/Notes/']
