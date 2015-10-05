@@ -200,4 +200,5 @@ alias phpunit='phpunit --colors --verbose'
 
 export HISTFILESIZE=42000000
 
-
+# Bashrc for frank brokken c/c++ course
+source ~/.bash-c-course-rc
