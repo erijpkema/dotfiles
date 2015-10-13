@@ -1,12 +1,18 @@
 # This is a bash snippet, to be sourced from .profile
 # NB Do not source this snippet multiple times. It'll clutter your environment.
+
+# For good measure: default compiler flags for the C++ course
+export CXXFLAGS="${CXXFLAGS} -Wall -std=c++14"
+
 if [ -x /usr/local/bin/g++ ] ; then
     GCCBASE="/usr/local"
 elif [ -x /usr/bin/g++ ] ; then
-    GCCBASE="/usr"
+    # probably everything else is already setup by the package management.
+    # Otherwise good luck.
+    return 0
 else
     echo "Could not find g++ "
-    exit 1
+    return 1
 fi
 
 echo $GCCBASE
