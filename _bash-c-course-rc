@@ -27,9 +27,6 @@ export PATH="${PATH}:${GCCBASE}/bin"
 export CXX="${GCCBASE}/bin/g++"
 export CC="${GCCBASE}/bin/gcc"
 
-# For good measure: default compiler flags for the C++ course
-export CXXFLAGS="${CXXFLAGS} -Wall -std=c++14"
-
 # This is for during compile: prefer newer headers
 export CPLUS_INCLUDE_PATH="${GCCBASE}/include:${CPLUS_INCLUDE_PATH}"
 
