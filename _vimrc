@@ -333,3 +333,8 @@ endfunction
 
 "Vimnotes
 let g:notes_directories = ['~/Dropbox/Documents/Notes/']
+
+
+"YAPF A python formatter
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+
