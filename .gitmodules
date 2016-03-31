@@ -82,9 +82,6 @@
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = https://github.com/sontek/minibufexpl.vim.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = https://github.com/wincent/Command-T.git
 [submodule "pyflakes-pathogen"]
 	path = pyflakes-pathogen
 	url = https://github.com/mitechie/pyflakes-pathogen.git
@@ -114,7 +111,10 @@
 	url = https://github.com/vim-scripts/The-NERD-tree.git
 [submodule "bundle/ropevim"]
 	path = bundle/ropevim
-	url = https://github.com/sontek/rope-vim.git
+	url = https://github.com/python-rope/ropevim.git
 [submodule "_vim/bundle/yapf"]
 	path = _vim/bundle/yapf
 	url = https://github.com/google/yapf.git
+[submodule "bundle/Command-T"]
+	path = bundle/command-t
+	url = https://github.com/wincent/Command-T.git

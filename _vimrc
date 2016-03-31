@@ -336,5 +336,5 @@ let g:notes_directories = ['~/Dropbox/Documents/Notes/']
 
 
 "YAPF A python formatter
-autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/dotfiles/_vim/bundle/yapf python ~/dotfiles/_vim/bundle/yapf/yapf<Cr>
 
