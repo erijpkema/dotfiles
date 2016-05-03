@@ -172,6 +172,8 @@ nnoremap <leader>. :lcd %:p:h<CR>
 set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
 
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
@@ -338,3 +340,11 @@ let g:notes_directories = ['~/Dropbox/Documents/Notes/']
 "YAPF A python formatter
 autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/dotfiles/_vim/bundle/yapf python ~/dotfiles/_vim/bundle/yapf/yapf<Cr>
 
+"Golang Settings
+let g:go_fmt_command = "goimports"
+au FileType go set nolist
+au FileType go set noexpandtab
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
