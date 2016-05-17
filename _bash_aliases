@@ -1,16 +1,19 @@
+#!/bin/bash
+function search-apt-key {
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "$1"
+}
 alias random='tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1'
 alias gen_mac="random |md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/'"
 alias o='xdg-open'
 alias clearTotemHistory='rm ~/.local/share/recently-used.xbel'
 alias sopstream='sp-sc sop://broker.sopcast.com:3912/100802 3908 8908  > /dev/null'
 alias nvpy='workon nvpy && nvpy'
-alias search-apt-key='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $1'
 alias hosts='sudo vim /etc/hosts'
 alias tmux='tmux -2'
 alias unnecessary-violence-to-docker='docker kill $(docker ps -q); docker rm $(docker ps -a -q) ; docker rmi $(docker images -q) ; sudo service docker restart'
 alias doco='docker-compose'
 alias dock_clean='docker rm $(docker ps -aq); docker rmi $(docker images --filter dangling=true)'
 alias route_via_pi='sudo ip route add 0.0.0.0/1 via 172.21.42.13 dev tun0'
-alias mountpi='sshfs pi:/media/disk/mp3/ /mnt/pi/'
+alias mountpi='sshfs pi:/media/disk/mp3/ /mnt/pi/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3'
 alias yapf='PYTHONPATH=~/dotfiles/_vim/bundle/yapf python ~/dotfiles/_vim/bundle/yapf/yapf'
 alias pep8='pep8 --max-line-length=119'
