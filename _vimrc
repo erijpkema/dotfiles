@@ -173,7 +173,7 @@ set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
 
 " neocomplete
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
