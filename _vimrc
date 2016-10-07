@@ -188,17 +188,17 @@ let g:neocomplete#enable_fuzzy_completion = 0
 
 " always use completions from all buffers
 if !exists('g:neocomplete#same_filetypes')
-	let g:neocomplete#same_filetypes = {}
+    let g:neocomplete#same_filetypes = {}
 endif
 let g:neocomplete#same_filetypes._ = '_'
 
-" disable for Python
+"disable for Python
 call neocomplete#util#set_default_dictionary(
-		\'g:neocomplete#sources#omni#input_patterns',
-		\'python',
-		\'')
+        \'g:neocomplete#sources#omni#input_patterns',
+        \'python',
+        \'')
 
-" from neocomplete.txt:
+
 " ---------------------
 
 " Plugin key-mappings.
@@ -328,13 +328,15 @@ autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 so
 
 " Python
 "au BufRead *.py compiler nose
-au FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType python setlocal omnifunc=python3complete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au FileType coffee setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
-
+"YAPF A python formatter
+autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/dotfiles/_vim/bundle/yapf python ~/dotfiles/_vim/bundle/yapf/yapf<Cr>
 
 
 " Add the virtualenv's site-packages to vim path
@@ -379,8 +381,6 @@ endfunction
 let g:notes_directories = ['~/Dropbox/Documents/Notes/']
 
 
-"YAPF A python formatter
-autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/dotfiles/_vim/bundle/yapf python ~/dotfiles/_vim/bundle/yapf/yapf<Cr>
 
 "Golang Settings
 let g:go_fmt_command = "goimports"
