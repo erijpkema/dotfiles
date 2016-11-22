@@ -193,7 +193,7 @@ export WORKON_HOME=$HOME/env
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 # Add git and svn branch names
-export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch) "
+export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch)"
 
 #Colors for phpunit
 alias phpunit='phpunit --colors --verbose'

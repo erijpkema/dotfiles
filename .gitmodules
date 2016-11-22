@@ -124,3 +124,6 @@
 [submodule "_vim/bundle/jedi-vim"]
 	path = _vim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "_vim/bundle/FastFold"]
+	path = _vim/bundle/FastFold
+	url = https://github.com/Konfekt/FastFold.git
