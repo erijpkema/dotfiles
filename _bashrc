@@ -206,4 +206,8 @@ export GOPATH=/home/egon/projects/go
 PATH=$GOPATH/bin:$PATH
 
 # Bashrc for frank brokken c/c++ course
-source ~/.bash-c-course-rc
+if [ -f ~/.bash-c-course-rc ]
+then
+    source ~/.bash-c-course-rc
+fi
+
