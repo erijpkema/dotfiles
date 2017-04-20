@@ -169,37 +169,9 @@ nnoremap <leader>. :lcd %:p:h<CR>
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest
 set pumheight=6             " Keep a small completion window
 
-" Neocomplete
-let g:neocomplete#data_directory = '~/.vim/tmp/neocomplete'
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#auto_completion_start_length = 2
-
-" increase limit for tag cache files
-let g:neocomplete#sources#tags#cache_limit_size = 16777216 " 16MB
-
-" fuzzy completion breaks dot-repeat more noticeably
-" https://github.com/Shougo/neocomplete.vim/issues/332
-let g:neocomplete#enable_fuzzy_completion = 0
-
-" always use completions from all buffers
-if !exists('g:neocomplete#same_filetypes')
-    let g:neocomplete#same_filetypes = {}
-endif
-let g:neocomplete#same_filetypes._ = '_'
-
-"disable for Python
-call neocomplete#util#set_default_dictionary(
-        \'g:neocomplete#sources#omni#input_patterns',
-        \'python',
-        \'')
-
-
-" ---------------------
 
 " Plugin key-mappings.
 inoremap <expr> <C-g> neocomplete#undo_completion()
@@ -336,7 +308,7 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
 "YAPF A python formatter
-autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/dotfiles/_vim/bundle/yapf python ~/dotfiles/_vim/bundle/yapf/yapf<Cr>
+autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/projects/dotfiles/_vim/bundle/yapf python ~/projects/dotfiles/_vim/bundle/yapf/yapf<Cr>
 
 
 " Add the virtualenv's site-packages to vim path
