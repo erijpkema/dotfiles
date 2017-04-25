@@ -1,6 +1,6 @@
 [user]
     name = Egon Rijpkema
-    email = egon@voipgrid.nl
+    email = git@egonrijpkema.nl
 
 [color]
     diff = auto
@@ -9,7 +9,7 @@
     ui = auto
 
 [push]
-	default = simple
+    default = simple
 
 [core]
     editor = vim
@@ -27,5 +27,5 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
-	g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
