@@ -12,6 +12,9 @@ function flush-iptables {
    iptables -F
    iptables -X
 }
+function stripcomment {
+    grep -v '^$\|^\s*\#' "$1"
+}
 
 alias apu='sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove'
 alias random='tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1'
