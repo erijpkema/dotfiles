@@ -116,8 +116,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Alias definitions.
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
+if [ -f ~/.bash_voipgrid ]; then
+    . ~/.bash_voipgrid
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -206,7 +206,7 @@ export GOPATH=/home/egon/projects/go
 PATH=$GOPATH/bin:$PATH
 
 # Bashrc for frank brokken c/c++ course
-if [ -f ~/.bash-c-course-rc ]
+if [ -f ~/.bash-c-course-rc ] 2>/dev/null
 then
     source ~/.bash-c-course-rc
 fi

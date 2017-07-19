@@ -12,6 +12,11 @@ function flush-iptables {
    iptables -F
    iptables -X
 }
+
+function stripcomment {
+    grep -v '^$\|^\s*\#' "$1"
+}
+
 function stripcomment {
     grep -v '^$\|^\s*\#' "$1"
 }
@@ -37,3 +42,5 @@ alias pep8='pep8 --max-line-length=119'
 alias flake8='flake8 --max-line-length=119'
 alias klad='vim note:klad'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
+
+eval $(thefuck --alias)
