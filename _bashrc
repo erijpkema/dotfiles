@@ -1,16 +1,29 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-#osx color terminal
-export CLICOLOR=1
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoreboth
+function append_prompt_command() {
+  PROMPT_COMMAND=${PROMPT_COMMAND:+"${PROMPT_COMMAND}; "}$1
+}
 
-# append to the history file, don't overwrite it
+###########
+# HISTORY #
+###########
+
+# Ignore duplicate commands, space-prefixed, and misc boring cmds.
+export HISTIGNORE="&:[ ]*:exit:gs:gl"
+# Massive main .bash_history...
+export HISTFILESIZE=10000
+# Larger session histories...
+export HISTSIZE=1000
+# Nice timestamps...
+HISTTIMEFORMAT='%F %T '
+# Save multi-line commands as one command...
+shopt -s cmdhist
+# Save commands as they're issued...
+append_prompt_command 'history -a'
+# And don't overwrite .bash_history on exit
 shopt -s histappend
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -199,7 +212,6 @@ export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch)"
 #Colors for phpunit
 alias phpunit='phpunit --colors --verbose'
 
-export HISTFILESIZE=42000000
 
 # Go Path
 export GOPATH=/home/egon/projects/go
