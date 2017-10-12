@@ -17,10 +17,6 @@ function stripcomment {
     grep -v '^$\|^\s*\#' "$1"
 }
 
-function stripcomment {
-    grep -v '^$\|^\s*\#' "$1"
-}
-
 alias apu='sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove'
 alias random='tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1'
 alias gen_mac="random |md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/'"
@@ -43,4 +39,4 @@ alias flake8='flake8 --max-line-length=119'
 alias klad='vim note:klad'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
