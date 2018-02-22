@@ -308,7 +308,7 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
 "YAPF A python formatter
-autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/projects/dotfiles/_vim/bundle/yapf python ~/projects/dotfiles/_vim/bundle/yapf/yapf<Cr>
+autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/projects/dotfiles/_vim/bundle/yapf python3 ~/projects/dotfiles/_vim/bundle/yapf/yapf<Cr>
 
 
 " Add the virtualenv's site-packages to vim path
