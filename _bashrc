@@ -223,3 +223,5 @@ then
     source ~/.bash-c-course-rc
 fi
 
+# A bit of fun.
+export ANSIBLE_COW_SELECTION=random

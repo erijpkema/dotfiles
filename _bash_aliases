@@ -40,3 +40,4 @@ alias klad='vim note:klad'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 alias wimp='curl http://ifconfig.co/ip'
 eval "$(thefuck --alias)"
+alias cowsay='cowsay -f duck.cow'
