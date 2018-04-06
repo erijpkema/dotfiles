@@ -124,3 +124,6 @@
 [submodule "_vim/bundle/FastFold"]
 	path = _vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
+[submodule "_vim/bundle/syntastic"]
+	path = _vim/bundle/syntastic
+	url = git@github.com:vim-syntastic/syntastic.git
