@@ -17,6 +17,11 @@ function stripcomment {
     grep -v '^$\|^\s*\#' "$1"
 }
 
+function checkyml {
+    python -c 'import yaml,sys;yaml.safe_load(sys.stdin)' < "$1"
+}
+
+
 alias apu='sudo apt-get update && sudo apt-get dist-upgrade --yes && sudo apt-get autoremove --yes'
 alias random='tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1'
 alias gen_mac="random |md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/'"
@@ -40,4 +45,4 @@ alias klad='vim note:klad'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 alias wimp='curl http://ifconfig.co/ip'
 eval "$(thefuck --alias)"
-alias cowsay='cowsay -f duck.cow'
+
