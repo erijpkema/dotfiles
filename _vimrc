@@ -350,7 +350,8 @@ endfunction
 "Vimnotes
 let g:notes_directories = ['~/Dropbox/Documents/Notes/']
 
-
+"Needed for yaml apparently
+let g:syntastic_yaml_checkers=['yamllint']
 
 "Golang Settings
 let g:go_fmt_command = "goimports"
