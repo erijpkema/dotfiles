@@ -1,0 +1,1 @@
+{'name', 'Configure', 'webserver', 'with', 'nginx', 'hosts', 'webservers', 'become', 'True', 'tasks', 'install', 'update_cache', 'copy', 'config', 'file', 'files', 'conf', 'dest', 'sites', 'available', 'default', 'enable', 'configuration', 'enabled', 'state', 'link', 'index', 'html', 'template', 'templates', 'share', 'mode', 'restart', 'service', 'restarted'}

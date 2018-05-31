@@ -1,0 +1,1 @@
+{'name', 'Initial', 'setup', 'hosts', 'test', 'become', 'True', 'tasks', 'template', 'files', 'hpc_gcc_hosts', 'dest', 'mode', 'owner', 'root', 'group'}
