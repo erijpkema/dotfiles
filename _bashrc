@@ -225,3 +225,5 @@ fi
 
 # A bit of fun.
 export ANSIBLE_COW_SELECTION=random
+# Tired of it
+export ANSIBLE_NOCOWS=1
