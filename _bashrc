@@ -12,9 +12,9 @@ function append_prompt_command() {
 # Ignore duplicate commands, space-prefixed, and misc boring cmds.
 export HISTIGNORE="&:[ ]*:exit:gs:gl"
 # Massive main .bash_history...
-export HISTFILESIZE=10000
+export HISTFILESIZE=100000
 # Larger session histories...
-export HISTSIZE=1000
+export HISTSIZE=10000
 # Nice timestamps...
 HISTTIMEFORMAT='%F %T '
 # Save multi-line commands as one command...
@@ -212,7 +212,6 @@ export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch)"
 #Colors for phpunit
 alias phpunit='phpunit --colors --verbose'
 
-
 # Go Path
 export GOPATH=/home/egon/projects/go
 PATH=$GOPATH/bin:$PATH
@@ -221,6 +220,12 @@ PATH=$GOPATH/bin:$PATH
 if [ -f ~/.bash-c-course-rc ] 2>/dev/null
 then
     source ~/.bash-c-course-rc
+fi
+
+# Ugly but needed to use gnome keyring?
+if [ -e /run/user/$UID/keyring/.ssh ]
+then
+    export SSH_AUTH_SOCK=/run/user/$UID/keyring/.ssh
 fi
 
 # A bit of fun.
