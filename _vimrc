@@ -171,6 +171,11 @@ set completeopt=menuone,longest
 set pumheight=6             " Keep a small completion window
 
 
+"enable neocomplete
+let g:neocomplete#enable_at_startup = 1
+" Select the first option if none are selected.
+let g:neocomplete#enable_auto_select = 1
+
 " Plugin key-mappings.
 inoremap <expr> <C-g> neocomplete#undo_completion()
 inoremap <expr> <C-l> neocomplete#complete_common_string()
@@ -179,6 +184,7 @@ inoremap <expr> <C-l> neocomplete#complete_common_string()
 " <CR>: cancel popup and insert newline.
 inoremap <silent> <CR> <C-r>=neocomplete#smart_close_popup()<CR><CR>
 " <TAB>: completion.
+"inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
@@ -352,6 +358,9 @@ let g:notes_directories = ['~/Dropbox/Documents/Notes/']
 
 "Needed for yaml apparently
 let g:syntastic_yaml_checkers=['yamllint']
+
+"Ansible yam;s"
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 
 "Golang Settings
 let g:go_fmt_command = "goimports"
