@@ -353,7 +353,7 @@ function! InsertDebugTrace()
     :w
 endfunction
 "Run python file with f9
-nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 
 "Vimnotes
 let g:notes_directories = ['~/Dropbox/Documents/Notes/']
