@@ -205,9 +205,11 @@ export WORKON_HOME=$HOME/env
 
 # make virsh commands work as debian user
 export LIBVIRT_DEFAULT_URI="qemu:///system"
-
-# Add git and svn branch names
-export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch)"
+if test -f /etc/debian_version
+# Add git and svn branch names only on debian like systems.
+# centos will whine when sudoing with this.
+    then export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch)\$(parse_hg_branch)"
+fi
 
 #Colors for phpunit
 alias phpunit='phpunit --colors --verbose'
