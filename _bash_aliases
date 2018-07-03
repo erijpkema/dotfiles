@@ -44,5 +44,6 @@ alias flake8='flake8 --max-line-length=119'
 alias klad='vim note:klad'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 alias wimp='curl http://ifconfig.co/ip'
+alias vi='vim'
 eval "$(thefuck --alias)"
 
