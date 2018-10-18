@@ -133,3 +133,6 @@
 [submodule "_vim/bundle/neocomplete"]
 	path = _vim/bundle/neocomplete
 	url = git@github.com:Shougo/neocomplete.vim.git
+[submodule "_tmux/plugins/tpm"]
+	path = _tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
