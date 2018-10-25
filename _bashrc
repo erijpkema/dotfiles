@@ -221,6 +221,7 @@ PATH=$GOPATH/bin:$PATH
 # Bashrc for frank brokken c/c++ course
 if [ -f ~/.bash-c-course-rc ] 2>/dev/null
 then
+    # shellcheck source=/dev/null
     source ~/.bash-c-course-rc
 fi
 
@@ -229,6 +230,13 @@ if [ -e /run/user/$UID/keyring/.ssh ]
 then
     export SSH_AUTH_SOCK=/run/user/$UID/keyring/.ssh
 fi
+
+# Autocompletion for kubectl
+if [ "$(command -v kubectl)" ] ; then
+    # shellcheck source=/dev/null
+    source <(kubectl completion bash)
+fi
+
 
 # A bit of fun.
 export ANSIBLE_COW_SELECTION=random
