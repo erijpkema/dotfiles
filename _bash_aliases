@@ -24,10 +24,11 @@ function checkyml {
 
 #alias flake8='workon flake8 && flake8 --max-line-length=119'
 alias apu='sudo apt-get update && sudo apt-get dist-upgrade --yes && sudo apt-get autoremove --yes'
-alias clearTotemHistory='rm ~/.local/share/recently-used.xbel'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 alias dock_clean='docker rm $(docker ps -aq); docker rmi $(docker images --filter dangling=true)'
 alias doco='docker-compose'
+alias disableipv6='sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
+alias enableipv6='sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0'
 alias flake8='flake8 --max-line-length=119'
 alias gen_mac="random |md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/'"
 alias hosts='sudo vim /etc/hosts'
@@ -41,16 +42,19 @@ alias purge-docker='sudo service docker stop; sudo rm -rf /var/lib/docker/ ; sud
 alias random='tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1'
 alias route_via_pi='sudo ip route add 0.0.0.0/1 via 172.21.42.13 dev tun0'
 alias sopstream='sp-sc sop://broker.sopcast.com:3912/100802 3908 8908  > /dev/null'
+# Slurm aliasses
 alias ssassoc='sacctmgr show assoc tree format=Cluster,Account,User%-30,Share,QOS%-160,DefaultQOS%-16'
 alias ssinfo='sinfo -o "%P|%a|%D|%T|%z|%c|%B|%m|%d|%f|%g|%l|%s|%S|%N|%E" | column -t -s "|"'
 alias ssqos='sacctmgr show qos format=Name%15,Priority,UsageFactor,GrpTRES%30,GrpSubmit,GrpJobs,MaxTRESPerUser%30,MaxSubmitJobsPerUser,MaxJobsPerUser,MaxTRESPerJob,MaxWallDurationPerJob'
 alias ssqueue='squeue -o "%i|%P|%q||%j|%u|%t|%M|%R|%S|%p"  | column -t -s "|"'
+
 alias tmux='tmux -2'
 alias unnecessary-violence-to-docker='docker kill $(docker ps -q); docker rm $(docker ps -a -q) ; docker rmi -f $(docker images -q) ; docker volume rm $(docker volume ls -qf dangling=true);  sudo service docker restart'
 alias vi='vim'
 alias wimp='curl http://ifconfig.co/ip'
+alias sxcat='sshuttle -r xcat 172.23.0.0/16 -x 172.23.40.1/25 -x 172.23.40.250'
+alias sairlock='sshuttle -r airlock 172.23.40.1/25 -x 172.23.40.36'
 alias yapf='PYTHONPATH=~/projects/dotfiles/_vim/bundle/yapf python ~/projects/dotfiles/_vim/bundle/yapf/yapf'
-
 
 eval "$(thefuck --alias)"
 
