@@ -10,9 +10,6 @@
 [submodule "_vim/bundle/command-t"]
 	path = _vim/bundle/command-t
 	url = git@github.com:wincent/command-t.git
-[submodule "_vim/bundle/pyflakes"]
-	path = _vim/bundle/pyflakes
-	url = https://github.com/mitechie/pyflakes-pathogen.git
 [submodule "_vim/bundle/ack"]
 	path = _vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
