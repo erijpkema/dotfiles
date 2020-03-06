@@ -34,7 +34,7 @@ function truecryptumount {
 }
 
 #alias flake8='workon flake8 && flake8 --max-line-length=119'
-alias apu='sudo apt-get update && sudo apt-get dist-upgrade --yes && sudo apt-get autoremove --yes'
+alias apu='sudo apt-get update && sudo apt-get dist-upgrade --yes && sudo apt-get autoremove --yes && apt-get clean'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 alias disableipv6='sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
 alias dock_clean='docker rm $(docker ps -aq); docker rmi $(docker images --filter dangling=true)'
