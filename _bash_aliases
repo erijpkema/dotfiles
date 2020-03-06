@@ -23,7 +23,7 @@ function checkyml {
 
 
 #alias flake8='workon flake8 && flake8 --max-line-length=119'
-alias apu='sudo apt-get update && sudo apt-get dist-upgrade --yes && sudo apt-get autoremove --yes && sudo apt-cache clean'
+alias apu='sudo apt-get update && sudo apt-get dist-upgrade --yes && sudo apt-get autoremove --yes && sudo apt-get clean'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 alias dock_clean='docker rm $(docker ps -aq); docker rmi $(docker images --filter dangling=true)'
 alias doco='docker-compose'
