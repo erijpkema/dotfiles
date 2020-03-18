@@ -52,7 +52,7 @@ alias tmux='tmux -2'
 alias unnecessary-violence-to-docker='docker kill $(docker ps -q); docker rm $(docker ps -a -q) ; docker rmi -f $(docker images -q) ; docker volume rm $(docker volume ls -qf dangling=true);  sudo service docker restart'
 alias vi='vim'
 alias wimp='curl http://ifconfig.co/ip'
-alias sxcat='sshuttle -r xcat 172.23.0.0/16 -x 172.23.40.1/25 -x 172.23.40.250'
+alias sxcat='sshuttle -r airlock 172.23.40.250/32 && sshuttle -r root@172.23.40.250 172.23.40.0/16'
 alias sairlock='sshuttle -r airlock 172.23.40.1/25 -x 172.23.40.36'
 alias yapf='PYTHONPATH=~/projects/dotfiles/_vim/bundle/yapf python ~/projects/dotfiles/_vim/bundle/yapf/yapf'
 
