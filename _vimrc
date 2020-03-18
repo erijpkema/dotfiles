@@ -313,7 +313,8 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 let g:pyflakes_use_quickfix = 0
 "YAPF A python formatter
 autocmd FileType python nnoremap <leader>y :0,$!PYTHONPATH=~/projects/dotfiles/_vim/bundle/yapf python3 ~/projects/dotfiles/_vim/bundle/yapf/yapf<Cr>
-
+" Set syntastic to python3
+let g:syntastic_python_checkers = ['flake8']
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
