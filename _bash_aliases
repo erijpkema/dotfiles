@@ -22,8 +22,8 @@ function checkyml {
 }
 
 function truecryptmount {
-    sudo losetup /dev/loop0 /home/egon/Dropbox/Documents/truecrypt
-    sudo cryptsetup --type tcrypt open /dev/loop0 truecrypt
+    sudo losetup /dev/loop42 /home/egon/Dropbox/Documents/truecrypt
+    sudo cryptsetup --type tcrypt open /dev/loop42 truecrypt
     sudo mount /dev/mapper/truecrypt  /mnt/tmp/
 }
 
