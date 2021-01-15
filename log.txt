@@ -1,0 +1,634 @@
+*********************** Log Started 2020-03-18T09:22:49Z ***********************
+09:22:49:************************* Folding@home Client *************************
+09:22:49:      Website: https://foldingathome.org/
+09:22:49:    Copyright: (c) 2009-2018 foldingathome.org
+09:22:49:       Author: Joseph Coffland <joseph@cauldrondevelopment.com>
+09:22:49:         Args: --user UG_HPC
+09:22:49:       Config: /home/egon/projects/dotfiles/config.xml
+09:22:49:******************************** Build ********************************
+09:22:49:      Version: 7.5.1
+09:22:49:         Date: May 11 2018
+09:22:49:         Time: 19:59:04
+09:22:49:   Repository: Git
+09:22:49:     Revision: 4705bf53c635f88b8fe85af7675557e15d491ff0
+09:22:49:       Branch: master
+09:22:49:     Compiler: GNU 6.3.0 20170516
+09:22:49:      Options: -std=gnu++98 -O3 -funroll-loops
+09:22:49:     Platform: linux2 4.14.0-3-amd64
+09:22:49:         Bits: 64
+09:22:49:         Mode: Release
+09:22:49:******************************* System ********************************
+09:22:49:          CPU: AMD Athlon(tm) II X4 635 Processor
+09:22:49:       CPU ID: AuthenticAMD Family 16 Model 5 Stepping 2
+09:22:49:         CPUs: 4
+09:22:49:       Memory: 7.79GiB
+09:22:49:  Free Memory: 3.15GiB
+09:22:49:      Threads: POSIX_THREADS
+09:22:49:   OS Version: 4.15
+09:22:49:  Has Battery: false
+09:22:49:   On Battery: false
+09:22:49:   UTC Offset: 1
+09:22:49:          PID: 11681
+09:22:49:          CWD: /home/egon/projects/dotfiles
+09:22:49:           OS: Linux 4.15.0-88-generic x86_64
+09:22:49:      OS Arch: AMD64
+09:22:49:         GPUs: 1
+09:22:49:        GPU 0: Bus:1 Slot:0 Func:0 NVIDIA:4 GM107 [GeForce GTX 750 Ti] 1306
+09:22:49:CUDA Device 0: Platform:0 Device:0 Bus:1 Slot:0 Compute:5.0 Driver:9.1
+09:22:49:       OpenCL: Not detected: Failed to open dynamic library 'libOpenCL.so':
+09:22:49:               libOpenCL.so: cannot open shared object file: No such file or
+09:22:49:               directory
+09:22:49:***********************************************************************
+09:22:49:<config>
+09:22:49:  <!-- Folding Slots -->
+09:22:49:  <slot id='0' type='CPU'/>
+09:22:49:  <slot id='1' type='GPU'/>
+09:22:49:</config>
+09:22:49:Trying to access database...
+09:22:49:Successfully acquired database lock
+09:22:49:Enabled folding slot 00: READY cpu:2
+09:22:49:Enabled folding slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306
+09:22:49:WU00:FS00:Connecting to 65.254.110.245:8080
+09:22:49:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:22:50:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:22:50:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:22:50:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:22:50:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:22:51:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:22:51:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+[93m09:22:51:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:22:51:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:22:51:WU00:FS00:Connecting to 65.254.110.245:8080
+09:22:51:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:22:52:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:22:52:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:22:52:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:22:52:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:22:52:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:22:52:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+[93m09:22:53:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:22:53:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:23:51:WU00:FS00:Connecting to 65.254.110.245:8080
+09:23:52:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:23:52:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:23:52:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:23:52:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:23:52:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:23:52:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:23:52:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+[93m09:23:53:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:23:53:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:25:29:WU00:FS00:Connecting to 65.254.110.245:8080
+09:25:29:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:25:29:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:25:29:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:25:29:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:25:29:WU01:FS01:Connecting to 18.218.241.186:80
+09:25:30:WU00:FS00:Assigned to work server 155.247.164.213
+09:25:30:WU00:FS00:Requesting new work unit for slot 00: READY cpu:2 from 155.247.164.213
+09:25:30:WU00:FS00:Connecting to 155.247.164.213:8080
+09:25:30:WU01:FS01:Assigned to work server 128.252.203.10
+09:25:30:WU01:FS01:Requesting new work unit for slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306 from 128.252.203.10
+09:25:30:WU01:FS01:Connecting to 128.252.203.10:8080
+[91m09:25:31:ERROR:WU00:FS00:Exception: 10001: Server responded: HTTP_SERVICE_UNAVAILABLE[0m
+09:26:18:WU01:FS01:Downloading 51.20MiB
+09:26:24:WU01:FS01:Download 11.35%
+09:26:30:WU01:FS01:Download 22.46%
+09:26:36:WU01:FS01:Download 29.42%
+09:26:42:WU01:FS01:Download 38.70%
+09:26:48:WU01:FS01:Download 49.81%
+09:26:54:WU01:FS01:Download 59.33%
+09:27:00:WU01:FS01:Download 72.52%
+09:27:06:WU01:FS01:Download 85.95%
+09:27:12:WU01:FS01:Download 96.32%
+09:27:14:WU01:FS01:Download complete
+09:27:14:WU01:FS01:Received Unit: id:01 state:DOWNLOAD error:NO_ERROR project:11763 run:0 clone:6940 gen:2 core:0x22 unit:0x0000000380fccb0a5e71136bedda0a55
+09:27:14:WU01:FS01:Downloading core from http://cores.foldingathome.org/v7/lin/64bit/Core_22.fah
+09:27:14:WU01:FS01:Connecting to cores.foldingathome.org:80
+09:27:14:WU01:FS01:FahCore 22: Downloading 3.58MiB
+09:27:19:WU01:FS01:FahCore 22: Download complete
+09:27:19:WU01:FS01:Valid core signature
+09:27:19:WU01:FS01:Unpacked 9.30MiB to cores/cores.foldingathome.org/v7/lin/64bit/Core_22.fah/FahCore_22
+09:27:19:WU01:FS01:Starting
+[91m09:27:19:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:27:19:WU01:FS01:Starting
+[91m09:27:19:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:28:06:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m09:28:06:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:28:06:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:28:07:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:28:07:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+09:28:19:WU01:FS01:Starting
+[91m09:28:19:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:29:57:WU01:FS01:Starting
+[91m09:29:57:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:32:20:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m09:32:21:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:32:21:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:32:21:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:32:21:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+09:32:34:WU01:FS01:Starting
+[91m09:32:34:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:36:48:WU01:FS01:Starting
+[91m09:36:48:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:36:48:WU01:FS01:Sending unit results: id:01 state:SEND error:FAILED project:11763 run:0 clone:6940 gen:2 core:0x22 unit:0x0000000380fccb0a5e71136bedda0a55
+09:36:48:WU01:FS01:Connecting to 128.252.203.10:8080
+09:36:49:WU02:FS01:Connecting to 65.254.110.245:8080
+09:36:49:WU01:FS01:Server responded WORK_ACK (400)
+09:36:49:WU01:FS01:Cleaning up
+[93m09:36:49:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:36:49:WU02:FS01:Connecting to 18.218.241.186:80
+[93m09:36:50:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:36:50:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+09:36:50:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m09:36:50:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:36:50:WU02:FS01:Connecting to 18.218.241.186:80
+[93m09:36:51:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:36:51:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+09:37:50:WU02:FS01:Connecting to 65.254.110.245:8080
+09:37:50:WU02:FS01:Assigned to work server 140.163.4.231
+09:37:50:WU02:FS01:Requesting new work unit for slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306 from 140.163.4.231
+09:37:50:WU02:FS01:Connecting to 140.163.4.231:8080
+09:39:12:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m09:39:12:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:39:12:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:39:13:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:39:13:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+09:39:36:WU02:FS01:Downloading 13.15MiB
+09:39:42:WU02:FS01:Download 6.65%
+09:39:51:WU02:FS01:Download 15.68%
+09:39:57:WU02:FS01:Download 23.29%
+09:40:03:WU02:FS01:Download 38.97%
+09:40:09:WU02:FS01:Download 59.41%
+09:40:15:WU02:FS01:Download 84.59%
+09:40:18:WU02:FS01:Download complete
+09:40:18:WU02:FS01:Received Unit: id:02 state:DOWNLOAD error:NO_ERROR project:11752 run:0 clone:772 gen:5 core:0x22 unit:0x0000000b8ca304e75e6a805d54193d88
+09:40:18:WU02:FS01:Starting
+[91m09:40:18:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:40:18:WU02:FS01:Starting
+[91m09:40:18:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:41:18:WU02:FS01:Starting
+[91m09:41:18:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:42:56:WU02:FS01:Starting
+[91m09:42:56:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:45:33:WU02:FS01:Starting
+[91m09:45:33:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:49:47:WU02:FS01:Starting
+[91m09:49:47:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+09:49:48:WU02:FS01:Sending unit results: id:02 state:SEND error:FAILED project:11752 run:0 clone:772 gen:5 core:0x22 unit:0x0000000b8ca304e75e6a805d54193d88
+09:49:48:WU02:FS01:Connecting to 140.163.4.231:8080
+09:49:48:WU02:FS01:Server responded WORK_ACK (400)
+09:49:48:WU02:FS01:Cleaning up
+09:49:48:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:49:48:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:49:48:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:49:49:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:49:49:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:49:49:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:49:50:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:49:50:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:49:50:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:49:50:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:50:17:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m09:50:18:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:50:18:WU00:FS00:Connecting to 18.218.241.186:80
+[93m09:50:18:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:50:18:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+09:50:49:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:50:50:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:50:50:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:50:50:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:50:50:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:52:27:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:52:27:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:52:27:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:52:27:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:52:27:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:55:04:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:55:04:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:55:04:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:55:05:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:55:05:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+09:59:18:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m09:59:19:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+09:59:19:WU01:FS01:Connecting to 18.218.241.186:80
+[93m09:59:19:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m09:59:19:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+10:06:10:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m10:06:10:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:06:10:WU01:FS01:Connecting to 18.218.241.186:80
+[93m10:06:11:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:06:11:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+10:08:14:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m10:08:14:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:08:14:WU00:FS00:Connecting to 18.218.241.186:80
+10:08:15:WU00:FS00:Assigned to work server 155.247.164.213
+10:08:15:WU00:FS00:Requesting new work unit for slot 00: READY cpu:2 from 155.247.164.213
+10:08:15:WU00:FS00:Connecting to 155.247.164.213:8080
+[91m10:08:15:ERROR:WU00:FS00:Exception: 10001: Server responded: HTTP_SERVICE_UNAVAILABLE[0m
+10:17:15:WU01:FS01:Connecting to 65.254.110.245:8080
+10:17:16:WU01:FS01:Assigned to work server 128.252.203.10
+10:17:16:WU01:FS01:Requesting new work unit for slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306 from 128.252.203.10
+10:17:16:WU01:FS01:Connecting to 128.252.203.10:8080
+10:18:01:WU01:FS01:Downloading 51.29MiB
+10:18:07:WU01:FS01:Download 2.32%
+10:18:13:WU01:FS01:Download 8.29%
+10:18:19:WU01:FS01:Download 15.11%
+10:18:25:WU01:FS01:Download 21.69%
+10:18:31:WU01:FS01:Download 26.93%
+10:18:37:WU01:FS01:Download 32.65%
+10:18:43:WU01:FS01:Download 37.89%
+10:18:49:WU01:FS01:Download 41.18%
+10:18:55:WU01:FS01:Download 44.84%
+10:19:01:WU01:FS01:Download 50.20%
+10:19:07:WU01:FS01:Download 54.46%
+10:19:13:WU01:FS01:Download 58.85%
+10:19:19:WU01:FS01:Download 64.09%
+10:19:25:WU01:FS01:Download 68.48%
+10:19:31:WU01:FS01:Download 73.11%
+10:19:37:WU01:FS01:Download 77.37%
+10:19:43:WU01:FS01:Download 82.49%
+10:19:49:WU01:FS01:Download 87.00%
+10:19:55:WU01:FS01:Download 91.75%
+10:20:01:WU01:FS01:Download 96.99%
+10:20:04:WU01:FS01:Download complete
+10:20:05:WU01:FS01:Received Unit: id:01 state:DOWNLOAD error:NO_ERROR project:11763 run:0 clone:8554 gen:0 core:0x22 unit:0x0000000080fccb0a5e7113595c0e6fae
+10:20:05:WU01:FS01:Starting
+[91m10:20:05:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:20:05:WU01:FS01:Starting
+[91m10:20:05:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:21:05:WU01:FS01:Starting
+[91m10:21:05:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:22:42:WU01:FS01:Starting
+[91m10:22:42:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:25:19:WU01:FS01:Starting
+[91m10:25:19:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:29:34:WU01:FS01:Starting
+[91m10:29:34:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:29:34:WU01:FS01:Sending unit results: id:01 state:SEND error:FAILED project:11763 run:0 clone:8554 gen:0 core:0x22 unit:0x0000000080fccb0a5e7113595c0e6fae
+10:29:34:WU01:FS01:Connecting to 128.252.203.10:8080
+10:29:34:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:29:35:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:29:35:WU02:FS01:Connecting to 18.218.241.186:80
+[93m10:29:35:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:29:35:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+10:29:35:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:29:36:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:29:36:WU02:FS01:Connecting to 18.218.241.186:80
+[93m10:29:36:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:29:36:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+10:30:35:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:30:36:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:30:36:WU02:FS01:Connecting to 18.218.241.186:80
+[93m10:30:36:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:30:36:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+[93m10:31:43:WARNING:WU01:FS01:WorkServer connection failed on port 8080 trying 80[0m
+10:31:43:WU01:FS01:Connecting to 128.252.203.10:80
+10:32:13:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:32:13:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:32:13:WU02:FS01:Connecting to 18.218.241.186:80
+[93m10:32:14:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:32:14:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+[93m10:32:49:WARNING:WU01:FS01:Exception: Failed to send results to work server: Failed to connect to 128.252.203.10:80: Connection refused[0m
+10:32:49:WU01:FS01:Trying to send results to collection server
+10:32:49:WU01:FS01:Connecting to 155.247.166.219:8080
+10:32:49:WU01:FS01:Server responded WORK_ACK (400)
+10:32:49:WU01:FS01:Cleaning up
+10:34:50:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:34:50:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:34:50:WU02:FS01:Connecting to 18.218.241.186:80
+[93m10:34:51:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:34:51:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+10:37:16:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m10:37:17:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:37:17:WU00:FS00:Connecting to 18.218.241.186:80
+[93m10:37:17:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:37:17:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+10:39:04:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:39:05:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:39:05:WU02:FS01:Connecting to 18.218.241.186:80
+[93m10:39:05:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:39:05:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+10:45:56:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:45:56:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:45:56:WU02:FS01:Connecting to 18.218.241.186:80
+[93m10:45:57:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m10:45:57:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+10:57:01:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m10:57:02:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+10:57:02:WU02:FS01:Connecting to 18.218.241.186:80
+10:57:02:WU02:FS01:Assigned to work server 140.163.4.241
+10:57:02:WU02:FS01:Requesting new work unit for slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306 from 140.163.4.241
+10:57:02:WU02:FS01:Connecting to 140.163.4.241:8080
+10:57:31:WU02:FS01:Downloading 4.53MiB
+10:57:41:WU02:FS01:Download 33.13%
+10:57:47:WU02:FS01:Download 59.35%
+10:57:53:WU02:FS01:Download 75.92%
+10:57:58:WU02:FS01:Download complete
+10:57:58:WU02:FS01:Received Unit: id:02 state:DOWNLOAD error:NO_ERROR project:11742 run:0 clone:4605 gen:4 core:0x22 unit:0x000000078ca304f15e69cd42ebbd629e
+10:57:58:WU02:FS01:Starting
+[91m10:57:58:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:57:58:WU02:FS01:Starting
+[91m10:57:58:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+10:58:58:WU02:FS01:Starting
+[91m10:58:58:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:00:35:WU02:FS01:Starting
+[91m11:00:35:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:03:12:WU02:FS01:Starting
+[91m11:03:12:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:07:27:WU02:FS01:Starting
+[91m11:07:27:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:07:27:WU02:FS01:Sending unit results: id:02 state:SEND error:FAILED project:11742 run:0 clone:4605 gen:4 core:0x22 unit:0x000000078ca304f15e69cd42ebbd629e
+11:07:27:WU02:FS01:Connecting to 140.163.4.241:8080
+11:07:27:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m11:07:28:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:07:28:WU01:FS01:Connecting to 18.218.241.186:80
+[93m11:07:28:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:07:28:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+11:07:28:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m11:07:29:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:07:29:WU01:FS01:Connecting to 18.218.241.186:80
+[93m11:07:29:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:07:29:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+11:07:38:WU02:FS01:Server responded WORK_ACK (400)
+11:07:39:WU02:FS01:Cleaning up
+11:08:29:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m11:08:29:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:08:29:WU01:FS01:Connecting to 18.218.241.186:80
+[93m11:08:30:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:08:30:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+11:10:06:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m11:10:06:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:10:06:WU01:FS01:Connecting to 18.218.241.186:80
+[93m11:10:07:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:10:07:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+11:12:43:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m11:12:43:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:12:43:WU01:FS01:Connecting to 18.218.241.186:80
+[93m11:12:44:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:12:44:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+11:16:57:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m11:16:58:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:16:58:WU01:FS01:Connecting to 18.218.241.186:80
+[93m11:16:58:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:16:58:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+11:23:49:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m11:23:49:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:23:49:WU01:FS01:Connecting to 18.218.241.186:80
+11:23:50:WU01:FS01:Assigned to work server 128.252.203.10
+11:23:50:WU01:FS01:Requesting new work unit for slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306 from 128.252.203.10
+11:23:50:WU01:FS01:Connecting to 128.252.203.10:8080
+11:24:15:WU00:FS00:Connecting to 65.254.110.245:8080
+11:24:16:WU00:FS00:Assigned to work server 155.247.164.213
+11:24:16:WU00:FS00:Requesting new work unit for slot 00: READY cpu:2 from 155.247.164.213
+11:24:16:WU00:FS00:Connecting to 155.247.164.213:8080
+[91m11:24:17:ERROR:WU00:FS00:Exception: 10001: Server responded: HTTP_SERVICE_UNAVAILABLE[0m
+11:24:30:WU01:FS01:Downloading 79.12MiB
+11:24:36:WU01:FS01:Download 4.66%
+11:24:42:WU01:FS01:Download 9.32%
+11:24:48:WU01:FS01:Download 14.38%
+11:24:54:WU01:FS01:Download 19.27%
+11:25:00:WU01:FS01:Download 24.49%
+11:25:06:WU01:FS01:Download 29.86%
+11:25:12:WU01:FS01:Download 35.86%
+11:25:18:WU01:FS01:Download 40.36%
+11:25:24:WU01:FS01:Download 45.03%
+11:25:30:WU01:FS01:Download 49.61%
+11:25:36:WU01:FS01:Download 54.58%
+11:25:42:WU01:FS01:Download 59.16%
+11:25:48:WU01:FS01:Download 65.33%
+11:25:54:WU01:FS01:Download 69.83%
+11:26:00:WU01:FS01:Download 74.49%
+11:26:06:WU01:FS01:Download 78.99%
+11:26:12:WU01:FS01:Download 82.70%
+11:26:18:WU01:FS01:Download 87.92%
+11:26:24:WU01:FS01:Download 92.97%
+11:26:30:WU01:FS01:Download 97.63%
+11:26:33:WU01:FS01:Download complete
+11:26:33:WU01:FS01:Received Unit: id:01 state:DOWNLOAD error:NO_ERROR project:11759 run:0 clone:4428 gen:6 core:0x22 unit:0x0000000880fccb0a5e6d7cbac79192ec
+11:26:33:WU01:FS01:Starting
+[91m11:26:33:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:26:33:WU01:FS01:Starting
+[91m11:26:33:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:27:33:WU01:FS01:Starting
+[91m11:27:33:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:29:11:WU01:FS01:Starting
+[91m11:29:11:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:31:48:WU01:FS01:Starting
+[91m11:31:48:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:36:02:WU01:FS01:Starting
+[91m11:36:02:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+11:36:02:WU01:FS01:Sending unit results: id:01 state:SEND error:FAILED project:11759 run:0 clone:4428 gen:6 core:0x22 unit:0x0000000880fccb0a5e6d7cbac79192ec
+11:36:02:WU01:FS01:Connecting to 128.252.203.10:8080
+11:36:03:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m11:36:03:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:36:03:WU02:FS01:Connecting to 18.218.241.186:80
+[93m11:36:04:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:36:04:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+11:36:04:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m11:36:04:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:36:04:WU02:FS01:Connecting to 18.218.241.186:80
+[93m11:36:05:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:36:05:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+11:36:56:WU01:FS01:Server responded WORK_ACK (400)
+11:36:56:WU01:FS01:Cleaning up
+11:37:04:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m11:37:04:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:37:04:WU02:FS01:Connecting to 18.218.241.186:80
+[93m11:37:05:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:37:05:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+11:38:41:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m11:38:42:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:38:42:WU02:FS01:Connecting to 18.218.241.186:80
+[93m11:38:42:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:38:42:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+11:41:18:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m11:41:19:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:41:19:WU02:FS01:Connecting to 18.218.241.186:80
+[93m11:41:19:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:41:19:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+11:45:33:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m11:45:33:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:45:33:WU02:FS01:Connecting to 18.218.241.186:80
+[93m11:45:34:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:45:34:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+11:52:24:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m11:52:25:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+11:52:25:WU02:FS01:Connecting to 18.218.241.186:80
+[93m11:52:25:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m11:52:25:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:03:30:WU02:FS01:Connecting to 65.254.110.245:8080
+12:03:30:WU02:FS01:Assigned to work server 128.252.203.10
+12:03:30:WU02:FS01:Requesting new work unit for slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306 from 128.252.203.10
+12:03:30:WU02:FS01:Connecting to 128.252.203.10:8080
+12:04:11:WU02:FS01:Downloading 86.23MiB
+12:04:17:WU02:FS01:Download 2.75%
+12:04:23:WU02:FS01:Download 5.44%
+12:04:29:WU02:FS01:Download 8.55%
+12:04:35:WU02:FS01:Download 11.38%
+12:04:41:WU02:FS01:Download 14.06%
+12:04:47:WU02:FS01:Download 16.96%
+12:04:53:WU02:FS01:Download 19.64%
+12:04:59:WU02:FS01:Download 22.54%
+12:05:05:WU02:FS01:Download 25.08%
+12:05:11:WU02:FS01:Download 27.98%
+12:05:17:WU02:FS01:Download 30.73%
+12:05:23:WU02:FS01:Download 33.48%
+12:05:29:WU02:FS01:Download 36.09%
+12:05:35:WU02:FS01:Download 38.56%
+12:05:41:WU02:FS01:Download 40.95%
+12:05:47:WU02:FS01:Download 43.56%
+12:05:53:WU02:FS01:Download 46.38%
+12:05:59:WU02:FS01:Download 49.28%
+12:06:05:WU02:FS01:Download 52.76%
+12:06:11:WU02:FS01:Download 55.30%
+12:06:17:WU02:FS01:Download 58.42%
+12:06:23:WU02:FS01:Download 61.17%
+12:06:29:WU02:FS01:Download 64.14%
+12:06:35:WU02:FS01:Download 66.90%
+12:06:41:WU02:FS01:Download 70.52%
+12:06:47:WU02:FS01:Download 72.48%
+12:06:53:WU02:FS01:Download 76.03%
+12:06:59:WU02:FS01:Download 79.00%
+12:07:05:WU02:FS01:Download 81.97%
+12:07:11:WU02:FS01:Download 85.45%
+12:07:17:WU02:FS01:Download 88.20%
+12:07:23:WU02:FS01:Download 91.68%
+12:07:29:WU02:FS01:Download 95.23%
+12:07:35:WU02:FS01:Download 98.71%
+12:07:37:WU02:FS01:Download complete
+12:07:38:WU02:FS01:Received Unit: id:02 state:DOWNLOAD error:NO_ERROR project:11764 run:0 clone:2002 gen:2 core:0x22 unit:0x0000000980fccb0a5e6d81a0981669d0
+12:07:38:WU02:FS01:Starting
+[91m12:07:38:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:07:38:WU02:FS01:Starting
+[91m12:07:38:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:08:38:WU02:FS01:Starting
+[91m12:08:38:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:10:15:WU02:FS01:Starting
+[91m12:10:15:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:12:53:WU02:FS01:Starting
+[91m12:12:53:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:17:07:WU02:FS01:Starting
+[91m12:17:07:ERROR:WU02:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:17:07:WU02:FS01:Sending unit results: id:02 state:SEND error:FAILED project:11764 run:0 clone:2002 gen:2 core:0x22 unit:0x0000000980fccb0a5e6d81a0981669d0
+12:17:07:WU02:FS01:Connecting to 128.252.203.10:8080
+12:17:07:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m12:17:08:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:17:08:WU01:FS01:Connecting to 18.218.241.186:80
+[93m12:17:08:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:17:08:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+12:17:09:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m12:17:09:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:17:09:WU01:FS01:Connecting to 18.218.241.186:80
+[93m12:17:10:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:17:10:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+12:17:56:WU02:FS01:Server responded WORK_ACK (400)
+12:17:56:WU02:FS01:Cleaning up
+12:18:09:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m12:18:09:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:18:09:WU01:FS01:Connecting to 18.218.241.186:80
+[93m12:18:10:WARNING:WU01:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:18:10:ERROR:WU01:FS01:Exception: Could not get an assignment[0m
+12:19:46:WU01:FS01:Connecting to 65.254.110.245:8080
+[93m12:19:46:WARNING:WU01:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:19:46:WU01:FS01:Connecting to 18.218.241.186:80
+12:19:47:WU01:FS01:Assigned to work server 140.163.4.241
+12:19:47:WU01:FS01:Requesting new work unit for slot 01: READY gpu:0:GM107 [GeForce GTX 750 Ti] 1306 from 140.163.4.241
+12:19:47:WU01:FS01:Connecting to 140.163.4.241:8080
+12:20:24:WU01:FS01:Downloading 11.98MiB
+12:20:30:WU01:FS01:Download 60.52%
+12:20:36:WU01:FS01:Download 86.09%
+12:20:40:WU01:FS01:Download complete
+12:20:40:WU01:FS01:Received Unit: id:01 state:DOWNLOAD error:NO_ERROR project:11741 run:0 clone:1433 gen:3 core:0x22 unit:0x000000088ca304f15e67d800418d6d3f
+12:20:41:WU01:FS01:Starting
+[91m12:20:41:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:20:41:WU01:FS01:Starting
+[91m12:20:41:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:21:41:WU01:FS01:Starting
+[91m12:21:41:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:23:18:WU01:FS01:Starting
+[91m12:23:18:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:25:55:WU01:FS01:Starting
+[91m12:25:55:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:30:10:WU01:FS01:Starting
+[91m12:30:10:ERROR:WU01:FS01:Failed to start core: OpenCL device matching slot 1 not found, try setting 'opencl-index' manually[0m
+12:30:10:WU01:FS01:Sending unit results: id:01 state:SEND error:FAILED project:11741 run:0 clone:1433 gen:3 core:0x22 unit:0x000000088ca304f15e67d800418d6d3f
+12:30:10:WU01:FS01:Connecting to 140.163.4.241:8080
+12:30:10:WU02:FS01:Connecting to 65.254.110.245:8080
+12:30:11:WU01:FS01:Server responded WORK_ACK (400)
+12:30:11:WU01:FS01:Cleaning up
+[93m12:30:11:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:30:11:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:30:12:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:30:12:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:30:12:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m12:30:12:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:30:12:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:30:13:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:30:13:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:31:12:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m12:31:12:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:31:12:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:31:13:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:31:13:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:32:49:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m12:32:50:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:32:50:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:32:50:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:32:50:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:35:26:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m12:35:27:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:35:27:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:35:27:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:35:27:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:39:41:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m12:39:41:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:39:41:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:39:42:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:39:42:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:40:16:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m12:40:16:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:40:16:WU00:FS00:Connecting to 18.218.241.186:80
+[93m12:40:17:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:40:17:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+12:46:32:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m12:46:33:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:46:33:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:46:33:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:46:33:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+12:57:38:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m12:57:38:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+12:57:38:WU02:FS01:Connecting to 18.218.241.186:80
+[93m12:57:39:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m12:57:39:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+13:15:35:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m13:15:35:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+13:15:35:WU02:FS01:Connecting to 18.218.241.186:80
+[93m13:15:35:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m13:15:35:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+13:44:37:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m13:44:37:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+13:44:37:WU02:FS01:Connecting to 18.218.241.186:80
+[93m13:44:38:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m13:44:38:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+14:31:35:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m14:31:36:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+14:31:36:WU02:FS01:Connecting to 18.218.241.186:80
+[93m14:31:36:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m14:31:36:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+14:43:16:WU00:FS00:Connecting to 65.254.110.245:8080
+[93m14:43:16:WARNING:WU00:FS00:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+14:43:16:WU00:FS00:Connecting to 18.218.241.186:80
+[93m14:43:16:WARNING:WU00:FS00:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m14:43:16:ERROR:WU00:FS00:Exception: Could not get an assignment[0m
+******************************* Date: 2020-03-18 *******************************
+15:47:36:WU02:FS01:Connecting to 65.254.110.245:8080
+[93m15:47:37:WARNING:WU02:FS01:Failed to get assignment from '65.254.110.245:8080': No WUs available for this configuration[0m
+15:47:37:WU02:FS01:Connecting to 18.218.241.186:80
+[93m15:47:37:WARNING:WU02:FS01:Failed to get assignment from '18.218.241.186:80': No WUs available for this configuration[0m
+[91m15:47:37:ERROR:WU02:FS01:Exception: Could not get an assignment[0m
+16:15:32:Caught signal SIGINT(2) on PID 11681
+16:15:32:Exiting, please wait. . .
+16:15:33:Caught signal SIGINT(2) on PID 11681
+[93m16:15:33:WARNING:Next signal will force exit[0m
+16:15:34:Clean exit

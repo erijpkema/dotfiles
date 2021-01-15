@@ -7,9 +7,6 @@
 [submodule "_vim/bundle/git"]
 	path = _vim/bundle/git
 	url = https://github.com/tpope/vim-git.git
-[submodule "_vim/bundle/command-t"]
-	path = _vim/bundle/command-t
-	url = git@github.com:wincent/command-t.git
 [submodule "_vim/bundle/ack"]
 	path = _vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
@@ -133,3 +130,9 @@
 [submodule "_tmux/plugins/tpm"]
 	path = _tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "_vim/bundle/--force"]
+	path = _vim/bundle/--force
+	url = git@github.com:wincent/command-t.git
+[submodule "_vim/bundle/command-t"]
+	path = _vim/bundle/command-t
+	url = git@github.com:wincent/command-t.git
