@@ -13,6 +13,11 @@
 " ==========================================================
 " Pathogen
 "     Better Management of VIM plugins
+" Planning to replace with native apckages
+" https://micro.quietmisdreavus.net/code/2020/03/15/vim8-packages
+"
+" vim-plug
+"     More modern vim plugin loader.
 "
 " GunDo
 "     Visual Undo in vim with diff's to check the differences
@@ -50,6 +55,30 @@
 " ==========================================================
 " Shortcuts
 " ==========================================================
+
+
+" ==========================================================
+"ddc.vim loaded via vim-plug"
+" ==========================================================
+"https://github.com/junegunn/vim-plug/wiki/tutorial"
+call plug#begin()
+Plug 'vim-denops/denops.vim'
+Plug 'vim-denops/denops-helloworld.vim'
+
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+
+" Install your sources
+Plug 'Shougo/ddc-around'
+
+" Install your filters
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
+
+call plug#end()
+
+
+
 set nocompatible              " Don't be compatible with vi
 let mapleader=","             " change the leader to be a comma vs slash
 
@@ -170,27 +199,6 @@ nnoremap <leader>. :lcd %:p:h<CR>
 set completeopt=menuone,longest
 set pumheight=6             " Keep a small completion window
 
-
-"enable neocomplete
-let g:neocomplete#enable_at_startup = 1
-" Select the first option if none are selected.
-let g:neocomplete#enable_auto_select = 1
-
-" Plugin key-mappings.
-inoremap <expr> <C-g> neocomplete#undo_completion()
-inoremap <expr> <C-l> neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: cancel popup and insert newline.
-inoremap <silent> <CR> <C-r>=neocomplete#smart_close_popup()<CR><CR>
-" <TAB>: completion.
-"inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr> <BS>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr> <C-y> neocomplete#close_popup()
-inoremap <expr> <C-e> neocomplete#cancel_popup()
 
 
 """ Moving Around/Editing
@@ -373,3 +381,53 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+
+
+
+
+
+" DDC completion plugin"
+" Customize global settings
+" Use around source.
+" https://github.com/Shougo/ddc-around
+call ddc#custom#patch_global('sources', ['around'])
+
+" Use matcher_head and sorter_rank.
+" https://github.com/Shougo/ddc-matcher_head
+" https://github.com/Shougo/ddc-sorter_rank
+call ddc#custom#patch_global('sourceOptions', {
+      \ '_': {
+      \   'matchers': ['matcher_head'],
+      \   'sorters': ['sorter_rank']},
+      \ })
+
+" Change source options
+call ddc#custom#patch_global('sourceOptions', {
+      \ 'around': {'mark': 'A'},
+      \ })
+call ddc#custom#patch_global('sourceParams', {
+      \ 'around': {'maxSize': 500},
+      \ })
+
+" Customize settings on a filetype
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sources', ['around', 'clangd'])
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', {
+      \ 'clangd': {'mark': 'C'},
+      \ })
+call ddc#custom#patch_filetype('markdown', 'sourceParams', {
+      \ 'around': {'maxSize': 100},
+      \ })
+
+" Mappings
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\ ddc#map#pum_visible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#map#manual_complete()
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+
+" Use ddc.
+call ddc#enable()
