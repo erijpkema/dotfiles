@@ -1,4 +1,12 @@
 #!/bin/bash
+
+function reset_floating_ip {
+    _fip=$(openstack server list --all-projects -f value | grep "$1" | grep -oP '\[.*?\]' | sed s/\'/\"/g  | jq '.[1]' | sed 's/\"//g')
+    openstack server remove floating ip "$1" "$_fip"
+    openstack server add floating ip "$1" "$_fip"
+}
+
+
 function search-apt-key {
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "$1"
 }
