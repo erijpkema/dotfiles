@@ -203,9 +203,6 @@ export EDITOR="$vim"
 export GIT_EDITOR="$vim"
 export WORKON_HOME=$HOME/env
 
-#Make less nicer
-#export LESS='-C -M -I -j 10 -# 4'
-
 # make virsh commands work as debian user
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 if test -f /etc/debian_version
@@ -236,6 +233,26 @@ then
     source ~/.bash-c-course-rc
 fi
 
+# Ugly but needed to use gnome keyring?
+#if [ -e /run/user/$UID/keyring/.ssh ]
+#then
+#    export SSH_AUTH_SOCK=/run/user/$UID/keyring/.ssh
+#fi
+
+# This should reliably start ssh-agent
+# https://rabexc.org/posts/pitfalls-of-ssh-agents
+ssh-add -l &>/dev/null
+if [ "$?" == 2 ]; then
+  test -r ~/.ssh-agent && \
+    eval "$(<~/.ssh-agent)" >/dev/null
+
+  ssh-add -l &>/dev/null
+  if [ "$?" == 2 ]; then
+    (umask 066; ssh-agent > ~/.ssh-agent)
+    eval "$(<~/.ssh-agent)" >/dev/null
+    ssh-add
+  fi
+fi
 
 # Autocompletion for kubectl
 if [ "$(command -v kubectl)" ] ; then
