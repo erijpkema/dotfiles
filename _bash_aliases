@@ -52,6 +52,13 @@ function truecryptumount {
     sudo losetup -d /dev/loop0
 }
 
+function find-kolla-logs {
+    keyword="$1"
+    for h in merlin-managementnode001 merlin-managementnode002 merlin-managementnode003
+        do ssh "$h" "sudo find /var/log/kolla/ -name '*.log' | xargs sudo grep $keyword"
+    done
+}
+
 #alias flake8='workon flake8 && flake8 --max-line-length=119'
 alias apu='sudo apt-get update && sudo apt-get dist-upgrade --yes && sudo apt-get autoremove --yes && sudo apt-get clean'
 alias ctop='docker run -ti --name ctop --rm -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
