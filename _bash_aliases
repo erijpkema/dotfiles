@@ -19,7 +19,7 @@ function reset_floating_ip {
 
 
 function search-apt-key {
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "$1"
+   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "$1"
 }
 
 function flush-iptables {
@@ -58,12 +58,17 @@ function bwu(){
 }
 
 function find-kolla-logs {
-    keyword="$1"
-    for h in merlin-managementnode001 merlin-managementnode002 merlin-managementnode003
-    do
-        echo -e "\e[36m$h\e[0m"
-        ssh "$h" "sudo find /var/log/kolla/ -name '*.log' | xargs sudo grep $keyword"
-    done
+   # keyword="$1"
+   # for h in merlin-managementnode001 merlin-managementnode002 merlin-managementnode003
+   # do
+   #     echo -e "\e[36m$h\e[0m"
+   #     ssh "$h" "sudo find /var/log/kolla/ -name '*.log' | xargs sudo grep $keyword"
+   # done
+   python3 ~/Dropbox/python/asynccli.py "$1"
+}
+
+function checkcert {
+    curl --insecure -vvI "$1" 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'
 }
 
 #alias flake8='workon flake8 && flake8 --max-line-length=119'
