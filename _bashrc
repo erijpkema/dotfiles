@@ -272,4 +272,8 @@ fi
 export ANSIBLE_COW_SELECTION=random
 # Tired of it
 export ANSIBLE_NOCOWS=1
-. "$HOME/.cargo/env"
+
+if [ -f "$HOME/.cargo/env" ] ; then
+source "$HOME/.cargo/env"
+fi
+
