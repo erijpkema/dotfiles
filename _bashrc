@@ -254,6 +254,13 @@ if [ "$?" == 2 ]; then
   fi
 fi
 
+# fzf
+if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] 2>/dev/null
+then
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :500 {}'"
+
 # Autocompletion for kubectl
 if [ "$(command -v kubectl)" ] ; then
     # shellcheck source=/dev/null
@@ -265,3 +272,4 @@ fi
 export ANSIBLE_COW_SELECTION=random
 # Tired of it
 export ANSIBLE_NOCOWS=1
+. "$HOME/.cargo/env"
