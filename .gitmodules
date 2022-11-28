@@ -133,3 +133,6 @@
 [submodule "_vim/plugged/ddc.vim"]
 	path = _vim/plugged/ddc.vim
 	url = https://github.com/Shougo/ddc.vim.git
+[submodule "_tmux/plugins/tmux-sensible"]
+	path = _tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible.git
