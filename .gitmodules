@@ -40,6 +40,21 @@
 [submodule "_vim/bundle/solarized"]
 	path = _vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "_vim/plugged/ddc-around"]
+	path = _vim/plugged/ddc-around
+	url = https://github.com/Shougo/ddc-source-around.git
+[submodule "_vim/plugged/ddc-matcher_head"]
+	path = _vim/plugged/ddc-matcher_head
+	url = https://github.com/Shougo/ddc-matcher_head.git
+[submodule "_vim/plugged/ddc-sorter_rank"]
+	path = _vim/plugged/ddc-sorter_rank
+	url = https://github.com/Shougo/ddc-sorter_rank.git
+[submodule "_vim/plugged/denops-helloworld.vim"]
+	path = _vim/plugged/denops-helloworld.vim
+	url = https://github.com/vim-denops/denops-helloworld.vim.git
+[submodule "_vim/plugged/denops.vim"]
+	path = _vim/plugged/denops.vim
+	url = https://github.com/vim-denops/denops.vim.git
 [submodule "_vim/bundle/markdown"]
 	path = _vim/bundle/markdown
 	url = https://github.com/plasticboy/vim-markdown.git
