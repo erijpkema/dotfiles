@@ -25,6 +25,9 @@
 [submodule "_vim/bundle/makegreen"]
 	path = _vim/bundle/makegreen
 	url = https://github.com/reinh/vim-makegreen
+[submodule "_vim/bundle/pyflakes"]
+	path = _vim/bundle/pyflakes
+	url = https://github.com/PyCQA/pyflakes.git
 [submodule "_vim/bundle/tasklist"]
 	path = _vim/bundle/tasklist
 	url = https://github.com/vim-scripts/TaskList.vim.git
@@ -136,3 +139,6 @@
 [submodule "_tmux/plugins/tmux-sensible"]
 	path = _tmux/plugins/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible.git
+[submodule "_tmux/plugins/tmux-yank"]
+	path = _tmux/plugins/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank.git
