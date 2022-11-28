@@ -130,3 +130,6 @@
 [submodule "_vim/bundle/command-t"]
 	path = _vim/bundle/command-t
 	url = git@github.com:wincent/command-t.git
+[submodule "_vim/plugged/ddc.vim"]
+	path = _vim/plugged/ddc.vim
+	url = https://github.com/Shougo/ddc.vim.git
