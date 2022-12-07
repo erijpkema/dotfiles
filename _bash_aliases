@@ -97,7 +97,7 @@ alias ssqos='sacctmgr show qos format=Name%15,Priority,UsageFactor,GrpTRES%30,Gr
 alias ssqueue='squeue -o "%i|%P|%q||%j|%u|%t|%M|%R|%S|%p"  | column -t -s "|"'
 alias tmux='tmux -2'
 alias unnecessary-violence-to-docker='docker kill $(docker ps -q); docker rm $(docker ps -a -q) ; docker rmi -f $(docker images -q) ; docker volume rm $(docker volume ls -qf dangling=true);  sudo service docker restart'
-alias vi='vim'
+alias vi='nvim'
 alias wimp='curl http://ifconfig.co/ip'
 alias sxcat='sshuttle -r airlock 172.23.40.250/32 & sshuttle -r root@172.23.40.250 172.23.40.0/16'
 alias sairlock='sshuttle -r airlock 172.23.40.1/25 -x 172.23.40.36'
