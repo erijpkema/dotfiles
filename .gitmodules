@@ -157,3 +157,9 @@
 [submodule "_tmux/plugins/tmux-yank"]
 	path = _tmux/plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank.git
+[submodule "_vim/plugged/ddc_ui_native"]
+	path = _vim/plugged/ddc-ui-native
+	url = https://github.com/Shougo/ddc-ui-native.git
+[submodule "_vim/plugged/dcc-ui-none"]
+	path = _vim/plugged/dcc-ui-none
+	url = https://github.com/Shougo/ddc-ui-none.git

@@ -23,7 +23,12 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-EDITOR=/usr/bin/vim
+if [ -f "/bin/nvim" ] ; then
+  EDITOR="/bin/nvim"
+else
+  EDITOR=/usr/bin/vim
+fi
+
 if [ -f "$HOME/.cargo/env" ] ; then
-source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 fi
