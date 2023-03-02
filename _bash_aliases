@@ -81,7 +81,7 @@ alias enableipv6='sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0'
 alias flake8='flake8 --max-line-length=119'
 alias gen_mac="random |md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/'"
 alias hosts='sudo vim /etc/hosts'
-alias klad='vim note:klad'
+alias klad='nvim ~/Dropbox/Documents/Notes/klad'
 alias logs='sudo tail -f -n 0 $(find /var/log -type f)'
 alias mountpi='sshfs pi:/media/disk/mp3/ /mnt/pi/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3'
 alias nvpy='workon nvpy && nvpy'
