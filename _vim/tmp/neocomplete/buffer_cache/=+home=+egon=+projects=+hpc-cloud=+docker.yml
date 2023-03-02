@@ -1,1 +1,0 @@
-{'ansible', 'playbook', 'deploy', 'docker', 'ubuntu', 'Xenial', 'name', 'apt_key', 'keyserver', 'pool', 'keyservers', 'E89F3A912897C070ADBF76221572C52609D', 'repository', 'apt_repository', 'repo', 'https', 'dockerproject', 'trusty', 'main', 'update_cache'}

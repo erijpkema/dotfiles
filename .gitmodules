@@ -1,75 +1,12 @@
-[submodule "_vim/bundle/fugitive"]
-	path = _vim/bundle/fugitive
-	url = http://github.com/tpope/vim-fugitive.git
-[submodule "_vim/bundle/surround"]
-	path = _vim/bundle/surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "_vim/bundle/git"]
-	path = _vim/bundle/git
-	url = https://github.com/tpope/vim-git.git
-[submodule "_vim/bundle/ack"]
-	path = _vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "_vim/bundle/gundo"]
-	path = _vim/bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
-[submodule "_vim/bundle/pydoc"]
-	path = _vim/bundle/pydoc
-	url = https://github.com/fs111/pydoc.vim.git
-[submodule "_vim/bundle/pep8"]
-	path = _vim/bundle/pep8
-	url = https://github.com/vim-scripts/pep8.git
-[submodule "_vim/bundle/pytest"]
-	path = _vim/bundle/pytest
-	url = https://github.com/alfredodeza/pytest.vim.git
-[submodule "_vim/bundle/makegreen"]
-	path = _vim/bundle/makegreen
-	url = https://github.com/reinh/vim-makegreen
-[submodule "_vim/bundle/pyflakes"]
-	path = _vim/bundle/pyflakes
-	url = https://github.com/PyCQA/pyflakes.git
-[submodule "_vim/bundle/tasklist"]
-	path = _vim/bundle/tasklist
-	url = https://github.com/vim-scripts/TaskList.vim.git
-[submodule "_vim/bundle/nerdtree"]
-	path = _vim/bundle/nerdtree
-	url = https://github.com/vim-scripts/The-NERD-tree.git
 [submodule "_vim/bundle/acp"]
 	path = _vim/bundle/acp
 	url = https://github.com/vim-scripts/AutoComplPop.git
-[submodule "_vim/bundle/solarized"]
-	path = _vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "_vim/plugged/ddc-around"]
-	path = _vim/plugged/ddc-around
-	url = https://github.com/Shougo/ddc-source-around.git
-[submodule "_vim/plugged/ddc-matcher_head"]
-	path = _vim/plugged/ddc-matcher_head
-	url = https://github.com/Shougo/ddc-matcher_head.git
-[submodule "_vim/plugged/ddc-sorter_rank"]
-	path = _vim/plugged/ddc-sorter_rank
-	url = https://github.com/Shougo/ddc-sorter_rank.git
-[submodule "_vim/plugged/denops-helloworld.vim"]
-	path = _vim/plugged/denops-helloworld.vim
-	url = https://github.com/vim-denops/denops-helloworld.vim.git
-[submodule "_vim/plugged/denops.vim"]
-	path = _vim/plugged/denops.vim
-	url = https://github.com/vim-denops/denops.vim.git
-[submodule "_vim/bundle/markdown"]
-	path = _vim/bundle/markdown
-	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "_vim/bundle/snipmate"]
 	path = _vim/bundle/snipmate
 	url = https://github.com/garbas/vim-snipmate.git
-[submodule "_vim/bundle/vim-addon-mw-utils"]
-	path = _vim/bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "_vim/bundle/snippets"]
 	path = _vim/bundle/snippets
 	url = https://github.com/honza/snipmate-snippets.git
-[submodule "_vim/bundle/coffee"]
-	path = _vim/bundle/coffee
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
@@ -115,51 +52,24 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/vim-scripts/The-NERD-tree.git
-[submodule "_vim/bundle/yapf"]
-	path = _vim/bundle/yapf
-	url = https://github.com/google/yapf.git
 [submodule "bundle/Command-T"]
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule "_vim/bundle/vim-go"]
-	path = _vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
-[submodule "_vim/bundle/jedi-vim"]
-	path = _vim/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "_vim/bundle/FastFold"]
 	path = _vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
-[submodule "_vim/bundle/syntastic"]
-	path = _vim/bundle/syntastic
-	url = git@github.com:vim-syntastic/syntastic.git
-[submodule "_vim/bundle/ansible-vim"]
-	path = _vim/bundle/ansible-vim
-	url = https://github.com/pearofducks/ansible-vim
 [submodule "_tmux/plugins/tpm"]
 	path = _tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule "_vim/bundle/--force"]
 	path = _vim/bundle/--force
 	url = git@github.com:wincent/command-t.git
-[submodule "_vim/bundle/command-t"]
-	path = _vim/bundle/command-t
-	url = git@github.com:wincent/command-t.git
-[submodule "_vim/plugged/ddc.vim"]
-	path = _vim/plugged/ddc.vim
-	url = https://github.com/Shougo/ddc.vim.git
 [submodule "_tmux/plugins/tmux-sensible"]
 	path = _tmux/plugins/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible.git
 [submodule "_tmux/plugins/tmux-yank"]
 	path = _tmux/plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank.git
-[submodule "_vim/plugged/ddc_ui_native"]
-	path = _vim/plugged/ddc-ui-native
-	url = https://github.com/Shougo/ddc-ui-native.git
-[submodule "_vim/plugged/dcc-ui-none"]
-	path = _vim/plugged/dcc-ui-none
-	url = https://github.com/Shougo/ddc-ui-none.git
