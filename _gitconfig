@@ -10,9 +10,10 @@
 
 [push]
     default = simple
+    autoSetupRemote = true
 
 [core]
-    editor = vim
+    editor = nvim
     pager = less -R
 
 [alias]
@@ -23,9 +24,11 @@
     co = checkout
     df = diff
     lg = log -p
-    up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
+    up = !sh -c 'git pull --rebase --prune && git log --pretty=format:"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)" HEAD@{1}..'
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
+[credential "https://gitlab.com"]
+    username = erijpkema
