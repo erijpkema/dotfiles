@@ -32,3 +32,10 @@
 
 [credential "https://gitlab.com"]
     username = erijpkema
+
+[rere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = --committerdate
