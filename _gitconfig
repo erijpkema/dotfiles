@@ -29,7 +29,8 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	pushfwl = push --force-with-lease
+  	pushfwl = push --force-with-lease
+  	bb = git-branch.sh
 
 [credential "https://gitlab.com"]
     username = erijpkema
