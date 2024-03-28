@@ -43,3 +43,5 @@
 	sort = --committerdate
 [diff]
 	tool = vimdiff
+[init]
+	defaultBranch = main
