@@ -41,3 +41,5 @@
 	ui = auto
 [branch]
 	sort = --committerdate
+[diff]
+	tool = vimdiff
